@@ -94,6 +94,9 @@
 		</div>
 		<!-- 検索条件 -->
 		<input type="hidden" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
+		<input type="hidden" name="p" value="${condition.p!}" />
+		<input type="hidden" name="c" value="${condition.c!}" />
+		<input type="hidden" name="d" value="${condition.d!}" />
 	</form>
 </div>
 <div class="row">
@@ -104,7 +107,13 @@
 	<a href="/logout">ログアウト</a><br />
 	<br />
 	<form name="removeForm" id="RemoveForm" method="post" action="${selfUri!}/remove">
+		<!-- 削除条件 -->
 		<input type="hidden" name="id" value="" />
+		<!-- 検索条件 -->
+		<input type="hidden" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
+		<input type="hidden" name="p" value="${condition.p!}" />
+		<input type="hidden" name="c" value="${condition.c!}" />
+		<input type="hidden" name="d" value="${condition.d!}" />
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form>
 </div>

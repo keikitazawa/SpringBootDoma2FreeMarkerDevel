@@ -54,17 +54,24 @@ public class TaxonomyController extends BaseController implements BaseController
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
 	public String index(
 			// for Get 他サイトから来た時＆処理後のリダイレクト
-			@RequestParam(required=false) Map<String, String> q,
-			@RequestParam(required=false, defaultValue="0") String p,
-			@RequestParam(required=false, defaultValue="0") String c,
-			@RequestParam(required=false, defaultValue="0") String d,
+			@RequestParam Map<String, String> q,
+			@RequestParam(defaultValue="0") String p,
+			@RequestParam(defaultValue="0") String c,
+			@RequestParam(defaultValue="0") String d,
+			@RequestParam(defaultValue="") String searchKeyword,
 			// for Post (キーワード検索(Getでやってる))
-			@RequestParam(value="searchKeyword", defaultValue="") String searchKeyword,
 			@ModelAttribute(value="searchForm") TaxonomyAdminSearchForm condition,
 			Model model
 	) {
 		// TODO 毎回これを書かない方法を考える：理想は、Mapに対してデフォルト値を指定
-		if (Objects.nonNull(q)) {
+		/**
+		 * TODO 分岐
+		 * 初期表示：デフォルト設定
+		 * 検索：クエリストリング
+		 * 登録・削除：フォーム（フォームから渡されているか判定する必要がある）
+		 */
+		// リダイレクトされていない場合はパラメータから取得
+		if (!condition.isRedirect()) {
 			condition.setP(p);
 			condition.setC(c);
 			condition.setD(d);
@@ -92,6 +99,8 @@ public class TaxonomyController extends BaseController implements BaseController
 			Model model
 	) {
 		
+		condition.setRedirect(true);
+		
 		// validation
         if (bindingResult.hasErrors()) {
     	    redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
@@ -104,19 +113,17 @@ public class TaxonomyController extends BaseController implements BaseController
 		try {
 			BeanUtils.copyProperties(target, condition);
 			_ths.insert(target);
-		} catch (IllegalAccessException | InvocationTargetException | SqlExecutionException  e) {
+		} catch (IllegalAccessException | InvocationTargetException | SqlExecutionException e) {
 			e.printStackTrace();
     	    redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
     		redirectAttributes.addFlashAttribute("searchForm", condition);
     		return "redirect:" + SELF_URI_LOCAL;
-		} 
+		}
 		
-		// 正常終了後は検索条件のない状態で出力
-//		condition = new TaxonomyAdminSearchForm();
-		// 登録後処理
-		model = this.getData(condition, model);
-		
-		// redirect
+		// 正常終了は入力項目を消す
+		condition.setName("");
+		condition.setDescription("");
+		condition.setWeight("");
 		redirectAttributes.addFlashAttribute("searchForm", condition);
 		return "redirect:" + SELF_URI_LOCAL;
 	}
@@ -139,12 +146,9 @@ public class TaxonomyController extends BaseController implements BaseController
 			Model model
 	) {
 		
-		// validation
+		condition.setRedirect(true);
 		
-		// regist
 		Taxonomy target = new Taxonomy();
-		// nullが文字列として入ってしまう
-//		BeanUtils.copyProperties(target, condition);
 		target.setId(condition.getId());
 		try {
 			_ths.delete(target);
@@ -155,11 +159,6 @@ public class TaxonomyController extends BaseController implements BaseController
 		} catch (RuntimeException e) {
 			System.out.println("Exeption");
 		}
-
-		// 削除後は検索条件を引き継ぐ
-//		BeanUtils.copyProperties(condition, reginput);
-		model = this.getData(condition,  model);
-		
 		// redirect
 		redirectAttributes.addFlashAttribute("searchForm", condition);
 		return "redirect:" + SELF_URI_LOCAL;

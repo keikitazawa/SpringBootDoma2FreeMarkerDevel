@@ -34,6 +34,11 @@ public class BaseSearchForm {
 	 * 件数をカウントするか
 	 */
 	private boolean isPagerCalcCount = AppConf.Pager.IsCalcCount;
+	/**
+	 * リダイレクトされてきた場合はtrue
+	 * リダイレクトされている場合はformオブジェクトにページャ情報があると判定させる
+	 */
+	private boolean isRedirect = false;
 	
 	/** getter/setter **/
 	/**
@@ -67,6 +72,12 @@ public class BaseSearchForm {
 		return isPagerCalcCount;
 	}
 	/**
+	 * @return isRedirect
+	 */
+	public boolean isRedirect() {
+		return isRedirect;
+	}
+	/**
 	 * @param c セットする c
 	 */
 	public void setC(String c) {
@@ -95,5 +106,11 @@ public class BaseSearchForm {
 	 */
 	public void setPagerCalcCount(boolean isPagerCalcCount) {
 		this.isPagerCalcCount = isPagerCalcCount;
+	}
+	/**
+	 * @param isRedirect セットする isRedirect
+	 */
+	public void setRedirect(boolean isRedirect) {
+		this.isRedirect = isRedirect;
 	}
 }
