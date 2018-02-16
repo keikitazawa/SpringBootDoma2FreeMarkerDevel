@@ -1,0 +1,7 @@
+input[class^=modifyBox_], textarea[class^=modifyBox_] {
+	display: none;
+}
+
+button[class*=modifyBox_]{
+	display: none;
+}

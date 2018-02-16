@@ -1,0 +1,79 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.10.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '2.19.1-SNAPSHOT'
+
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+jar {
+    baseName = 'SpringBootDoma2FreeMarkerDemo'
+    version =  version
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-actuator-docs')
+	
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	
+	compile('org.springframework.boot:spring-boot-starter-cache')
+	//	compile('org.freemarker:freemarker')
+	compile('org.springframework.boot:spring-boot-starter-freemarker')
+	
+	compile('org.springframework.boot:spring-boot-starter-integration')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.session:spring-session')
+	compile('org.springframework.boot:spring-boot-starter-validation')
+	
+
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile("org.springframework.boot:spring-boot-configuration-processor")
+    
+	compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+	compile("org.seasar.doma.boot:doma-spring-boot-starter:1.1.1")
+
+	// https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
+	// spring標準のものは型変換をしないためこちらを使う
+	compile('commons-beanutils:commons-beanutils')
+
+	runtime("org.postgresql:postgresql")
+	runtime("com.h2database:h2")
+
+	testCompile("junit:junit")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	// https://mvnrepository.com/artifact/dbunit/dbunit
+	testCompile("dbunit:dbunit:2.2")
+	
+}
+
+// ======== wrapper ========
+task wrapper(type: Wrapper) {
+	gradleVersion = "4.5"
+}
+
+//apply from: "eclipse.gradle"
+

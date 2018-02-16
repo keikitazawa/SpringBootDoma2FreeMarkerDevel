@@ -1,0 +1,89 @@
+server:
+  port: 8080
+  session:
+    timeout: 3600
+
+### Begin Spring ### 
+spring:
+
+  # for jar format
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      
+  freemarker:
+    enabled: true
+    cache: false
+    charset: UTF-8
+    suffix: .ftlh
+    template-loader-path:
+      - classpath:templates/
+#      - file:src/main/resources/templates
+    settings:
+#      url_escaping_charset: UTF-8
+#      output_format: HTMLOutputFormat
+#      lazy_auto_imports: true
+#      #auto_import: /spring.ftl as spring
+#      # 例外の処理モード。
+#      # 開発時は html_debug 本番は rethrow を指定する。
+      template_exception_handler: html_debug
+      # ftlhファイルのオートエスケープ
+      recognize_standard_file_extensions: true
+    expose-request-attributes: true
+    expose-spring-macro-helpers: true
+    
+  # jdbc
+  datasource:
+    platform: h2
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 
+
+  # session
+  session:
+    store-type: hash-map
+  
+  # H2
+  h2:
+    console:
+      enabled: true
+      path: /console
+      
+  # spring-messages(単純なメッセージソース)
+#  messages:
+#    basename: classpath:i18n/messages
+#    cache-seconds: 0
+#    encoding: UTF-8
+### End Spring ### 
+
+# doma
+doma:
+  dialect: h2
+  exception-sql-log-type: formatted
+
+# spring-boot actuator
+management:
+  context-path: /sysconfig
+  security:
+    enabled: false
+    
+endpoints:
+  health:
+    sensitive: false
+
+logging:
+#  file: logs/info.log
+  level:
+    root: info
+    org.springframework.web: info
+    logging.level.org.hibernate: info
+    org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer: off
+                          
+# security
+security:
+  basic:
+    enabled: false
+
+
