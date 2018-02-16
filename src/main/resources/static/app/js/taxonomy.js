@@ -3,7 +3,7 @@
  */
 $(function() {
 	// Pager
-	var defaultPager = new Pager();
+	var defaultPager = new Pager($("#DefaultPager"), $("form[name=searchForm]"));
 	
 	var site = new TaxonomyAdmin();
 	// 削除処理

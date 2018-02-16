@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.fslabs.springbootdoma2freemarker.app.dto.TaxonomyDto;
@@ -63,9 +62,7 @@ public class TaxonomyController extends BaseController implements BaseController
 			@ModelAttribute(value="searchForm") TaxonomyAdminSearchForm condition,
 			Model model
 	) {
-		// TODO 毎回これを書かない方法を考える：理想は、Mapに対してデフォルト値を指定
 		/**
-		 * TODO 分岐
 		 * 初期表示：デフォルト設定
 		 * 検索：クエリストリング
 		 * 登録・削除：フォーム（フォームから渡されているか判定する必要がある）
@@ -100,11 +97,11 @@ public class TaxonomyController extends BaseController implements BaseController
 	) {
 		
 		condition.setRedirect(true);
+		redirectAttributes.addFlashAttribute("searchForm", condition);
 		
 		// validation
         if (bindingResult.hasErrors()) {
     	    redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-    		redirectAttributes.addFlashAttribute("searchForm", condition);
     		return "redirect:" + SELF_URI_LOCAL;
         }
         
@@ -116,7 +113,6 @@ public class TaxonomyController extends BaseController implements BaseController
 		} catch (IllegalAccessException | InvocationTargetException | SqlExecutionException e) {
 			e.printStackTrace();
     	    redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-    		redirectAttributes.addFlashAttribute("searchForm", condition);
     		return "redirect:" + SELF_URI_LOCAL;
 		}
 		

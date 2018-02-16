@@ -1,25 +1,16 @@
 // pagerId default : defaultPager
 // TODO Comment作成
-var Pager = function(){
-	this.pagerObject = $("#DefaultPager");
-	this.searchForm = $("form[name=searchForm]");
+var Pager = function(pager, searchForm){
+//	this.pagerObject = $("#DefaultPager");
+//	this.searchForm = $("form[name=searchForm]");
+	this.pagerObject = pager;
+	this.searchForm = searchForm;
 	this.ready(this.pagerObject, this.searchForm);
 }
 
 Pager.prototype.ready = function(pager, form) {
-	this.pagerObject.find(".pagerGoToStart").not(".disabled").click(
+	this.pagerObject.find(".changePage").not(".active").not(".disabled").find("a").click(
 		function(){
-			alert("gotoStart");
-		}
-	);
-	this.pagerObject.find(".pagerGoToEnd").not(".disabled").click(
-		function(){
-			alert("gotoEnd");
-		}
-	);
-	this.pagerObject.find(".changePage").not(".active").find("a").click(
-		function(){
-			
 			var p = $(this).parent().find("input.page").val();
 			$(searchForm).find("input[name=p]").val(p);
 //			var sortName = $(searchForm).find("input[name=snm]").val();
