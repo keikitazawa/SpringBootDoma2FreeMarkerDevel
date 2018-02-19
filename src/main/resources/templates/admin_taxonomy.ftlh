@@ -13,7 +13,7 @@
 				<input type="hidden" name="p" value="0" />
 				<input type="hidden" name="c" value="${condition.c!}" />
 				<input type="hidden" name="d" value="${condition.d!}" />
-				<!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
+				<#-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> -->
 		</div>
 		<div class="col-md-8">
 		</div>
@@ -48,7 +48,7 @@
 -->
 </div>
 <div class="row">
-<#list taxonomyHeaders as r>
+<#list taxonomies as r>
 	<div>
 		<div class="col-md-1">
 			<input type="checkbox" name="check" id="check_${r_index}" />
@@ -72,32 +72,12 @@
 </#list>
 </div>
 <div class="row">
-	<form name="registForm" method="post" action="${selfUri!}/regist">
-		<div class="col-md-1">
-			&nbsp;
-		</div>
-		<div class="col-md-3">
-			<input type="text" name="name" id="name_x" class="form-control" value="${condition.name!}" />
-			<@fieldError.main o=errors! field="name" cssclass="text-danger" />
-		</div>
-		<div class="col-md-4">
-			<textarea name="description" id="description_x" class="form-control">${condition.description!}</textarea>
-			<@fieldError.main o=errors! field="description" cssclass="text-danger" />
-		</div>
-		<div class="col-md-1">
-			<input type="text" name="weight" id="weight_x" class="form-control" value="${condition.weight!}" />
-			<@fieldError.main o=errors! field="weight" cssclass="text-danger" />
-		</div>
-		<div class="col-md-3">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<button onClick="submit();">追加</button>
-		</div>
-		<!-- 検索条件 -->
-		<input type="hidden" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
-		<input type="hidden" name="p" value="${condition.p!}" />
-		<input type="hidden" name="c" value="${condition.c!}" />
-		<input type="hidden" name="d" value="${condition.d!}" />
-	</form>
+	<div class="col-md-9">
+	</div>
+	<div class="col-md-3">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		<button class="addData">追加</button>
+	</div>
 </div>
 <div class="row">
 <!-- ${pager_pageNumber} / ${pager_totalCount} / ${pager_limit} / ${pager_width} / ${pager_buffer} -->
@@ -105,16 +85,28 @@
 </div>
 <div class="row">
 	<a href="/logout">ログアウト</a><br />
-	<br />
-	<form name="removeForm" id="RemoveForm" method="post" action="${selfUri!}/remove">
-		<!-- 削除条件 -->
-		<input type="hidden" name="id" value="" />
-		<!-- 検索条件 -->
-		<input type="hidden" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
-		<input type="hidden" name="p" value="${condition.p!}" />
-		<input type="hidden" name="c" value="${condition.c!}" />
-		<input type="hidden" name="d" value="${condition.d!}" />
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-	</form>
 </div>
+
+<form name="detailForm" method="post" action="${selfUri!}">
+	<#-- 削除条件 -->
+	<input type="hidden" name="id" value="" />
+	<#-- 検索条件 -->
+	<input type="hidden" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
+	<input type="hidden" name="p" value="${condition.p!}" />
+	<input type="hidden" name="c" value="${condition.c!}" />
+	<input type="hidden" name="d" value="${condition.d!}" />
+	<#-- csrf for detail window -->
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
+<form name="removeForm" id="RemoveForm" method="post" action="${selfUri!}/remove">
+	<#-- 削除条件 -->
+	<input type="hidden" name="id" value="" />
+	<#-- 検索条件 -->
+	<input type="hidden" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
+	<input type="hidden" name="p" value="${condition.p!}" />
+	<input type="hidden" name="c" value="${condition.c!}" />
+	<input type="hidden" name="d" value="${condition.d!}" />
+	<#-- csrf for detail window -->
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
 </@wrapper.main>

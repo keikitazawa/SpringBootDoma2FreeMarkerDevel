@@ -70,6 +70,9 @@ public class BaseController {
 	 */
 	protected List<String> setJavaScripts() {
 		List<String> ret = new ArrayList<String>(); 
+		ret.add("/common/js/jquery-3.3.1.min.js");
+		ret.add("/common/js/jquery-ui.min.js");
+		ret.add("/bootstrap/js/bootstrap.min.js");
 		return ret;
 	}
 	
@@ -78,7 +81,8 @@ public class BaseController {
 	 * @return
 	 */
 	protected List<String> setCsss(){
-		List<String> ret = new ArrayList<String>(); 
+		List<String> ret = new ArrayList<String>();
+		ret.add("/common/css/jquery-ui.min.css");
 		ret.add("/bootstrap/css/bootstrap.min.css");
 		return ret;
 	}

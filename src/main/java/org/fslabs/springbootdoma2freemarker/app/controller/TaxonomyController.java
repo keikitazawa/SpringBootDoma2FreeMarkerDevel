@@ -1,10 +1,8 @@
 package org.fslabs.springbootdoma2freemarker.app.controller;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.fslabs.springbootdoma2freemarker.app.dto.TaxonomyDto;
@@ -53,7 +51,7 @@ public class TaxonomyController extends BaseController implements BaseController
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
 	public String index(
 			// for Get 他サイトから来た時＆処理後のリダイレクト
-			@RequestParam Map<String, String> q,
+//			@RequestParam Map<String, String> q,
 			@RequestParam(defaultValue="0") String p,
 			@RequestParam(defaultValue="0") String c,
 			@RequestParam(defaultValue="0") String d,
@@ -196,7 +194,7 @@ public class TaxonomyController extends BaseController implements BaseController
 		map = super.setPagerConfigToMap(map, domaPagerEntity, selectOptions.getCount());
 		// 条件とDTOを格納
 		map.put("condition", condition);
-		map.put("taxonomyHeaders", dto.getTaxonomies());
+		map.put("taxonomies", dto.getTaxonomies());
 		map = this.setAttributeToMap(map);
 		// model挿入
 		model = super.setAttributesToModel(model, map);
@@ -207,6 +205,7 @@ public class TaxonomyController extends BaseController implements BaseController
 	/**
 	 * Controller共通で使う設定値を格納する
 	 *  →Controller共有するために第２引数以降は自由に設定する
+	 *  TODO スーパークラスに持っていけるか検討
 	 * @param map
 	 * @return
 	 */
@@ -214,14 +213,14 @@ public class TaxonomyController extends BaseController implements BaseController
 		
 		map.put("siteTitle", "タクソノミー管理");
 		
-		List<String> csss = new ArrayList<String>();
+		List<String> csss = super.setCsss();
 		csss.add("/app/css/taxonomy.css");
 		map.put("csss", csss);
 		
-		List<String> jss = new ArrayList<String>();
+		List<String> jss = super.setJavaScripts();
 		jss.add("/common/js/common.js");
 		jss.add("/common/js/__pager.js");
-		jss.add("/app/js/taxonomy.js");		
+		jss.add("/app/js/admin_taxonomy.js");
 		map.put("jss", jss);
 		
 		// 自身のURI
@@ -232,6 +231,7 @@ public class TaxonomyController extends BaseController implements BaseController
 	
 	/**
 	 * パラメータからソート順を取得する
+	 * TODO スーパークラスに持っていけるか検討
 	 * @param p カンマ区切りの番号
 	 * @return カンマ区切りのカラム名
 	 */
