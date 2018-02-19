@@ -76,7 +76,11 @@ public class TaxonomyDetailController extends BaseController implements BaseCont
 		Taxonomy target = new Taxonomy();
 		try {
 			BeanUtils.copyProperties(target, condition);
-			_ts.insert(target);
+			if (target.getId().length() > 0) {
+				_ts.update(target);
+			}else {
+				_ts.insert(target);				
+			}
 		} catch (IllegalAccessException | InvocationTargetException | SqlExecutionException e) {
 			e.printStackTrace();
     		ret.setErrors(bindingResult.getAllErrors());
@@ -89,9 +93,35 @@ public class TaxonomyDetailController extends BaseController implements BaseCont
 	
 
 	@RequestMapping(value="/modify", method = RequestMethod.POST)
-	public String modify() {
+	@ResponseBody
+	public ApiResultEntity modify(
+			@ModelAttribute(value="modalRegistForm") @Validated(ValidationSequence.class) TaxonomyAdminDetailRegistForm condition,
+            BindingResult bindingResult,
+			Model model
+	) {
 		
-		return "redirect:" + SELF_URI_LOCAL;
+		ApiResultEntity ret = new ApiResultEntity();
+		ret.setResult(-1);
+		
+		// validation
+        if (bindingResult.hasErrors()) {
+    		ret.setErrors(bindingResult.getAllErrors());
+    		return ret;
+        }
+        
+        // regist
+		Taxonomy target = new Taxonomy();
+		try {
+			BeanUtils.copyProperties(target, condition);
+			_ts.update(target);
+		} catch (IllegalAccessException | InvocationTargetException | SqlExecutionException e) {
+			e.printStackTrace();
+    		ret.setErrors(bindingResult.getAllErrors());
+    		return ret;
+   		}
+		ret.setResult(0);
+		
+		return ret;
 	}
 	
 //	/**

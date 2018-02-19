@@ -27,7 +27,6 @@ TaxonomyAdminDetail.prototype.save = function(){
 	})
 	.done(
 		function(data, textStatus, jqXHR){
-//			alert(data);
 			if (data == undefined){
 				alert("null");
 			}else {

@@ -91,9 +91,9 @@ public class TaxonomyService extends BaseService {
 	 * @param taxonomyHeader
 	 */
 	@Transactional
-	public void delete(Taxonomy taxonomyHeader) /*throws SqlExecutionException, RuntimeException*/ {
+	public void delete(Taxonomy taxonomy) /*throws SqlExecutionException, RuntimeException*/ {
 		// 削除対象のEntityを取得
-		Taxonomy target = _tdao.findById(taxonomyHeader.getId());
+		Taxonomy target = _tdao.findById(taxonomy.getId());
 		try {
 			_tdao.delete(target);
 		} catch (Exception e) {
@@ -105,8 +105,8 @@ public class TaxonomyService extends BaseService {
 	 * 更新
 	 * @param taxonomyHeader
 	 */
-	public void update(Taxonomy taxonomyHeader) {
+	public void update(Taxonomy taxonomy) {
 		
-		_tdao.update(taxonomyHeader);
+		_tdao.update(taxonomy);
 	}
 }
