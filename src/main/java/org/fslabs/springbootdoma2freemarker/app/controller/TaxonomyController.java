@@ -15,6 +15,7 @@ import org.fslabs.springbootdoma2freemarker.core.util.DomaSelectOptionsUtil;
 import org.fslabs.springbootdoma2freemarker.core.util.OrderByUtil;
 import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -91,11 +92,17 @@ public class TaxonomyController extends BaseController {
 	) {
 		
 		condition.setRedirect(true);
-		
 		Taxonomy target = new Taxonomy();
-		target.setId(condition.getId());
-		target.setVersion(Long.parseLong(condition.getVersion()));
-		_ts.delete(target);
+		
+		try {
+			target.setId(condition.getId());
+			target.setVersion(Long.parseLong(condition.getVersion()));
+			_ts.delete(target);
+		} catch (OptimisticLockingFailureException e) {
+			redirectAttributes.addFlashAttribute("exception", e);
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			redirectAttributes.addFlashAttribute("exception", e);
+		}
 		// redirect
 		redirectAttributes.addFlashAttribute("searchForm", condition);
 		return "redirect:" + SELF_URI_LOCAL;

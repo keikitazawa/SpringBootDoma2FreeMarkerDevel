@@ -16,6 +16,11 @@
 </head>
 <body>
 <div class="container">
+<#if exception?has_content>
+<div class="row">
+	${exception}
+</div>
+</#if>
 
 <#nested />
 

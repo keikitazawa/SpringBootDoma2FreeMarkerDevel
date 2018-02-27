@@ -75,5 +75,5 @@ task wrapper(type: Wrapper) {
 	gradleVersion = "4.5"
 }
 
-//apply from: "eclipse.gradle"
+apply from: "eclipse.gradle"
 

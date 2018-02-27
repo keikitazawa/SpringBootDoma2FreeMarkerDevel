@@ -22,6 +22,7 @@ import org.fslabs.springbootdoma2freemarker.core.entity.DomaPagerEntity;
 import org.fslabs.springbootdoma2freemarker.core.util.DomaSelectOptionsUtil;
 import org.fslabs.springbootdoma2freemarker.core.util.OrderByUtil;
 import org.seasar.doma.jdbc.SelectOptions;
+import org.seasar.doma.jdbc.SqlExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -93,8 +94,6 @@ public class TermController extends BaseController implements BaseControllerInte
 	 * @param redirectAttributes
 	 * @param model
 	 * @return
-	 * @throws InvocationTargetException 
-	 * @throws IllegalAccessException 
 	 */
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
 	public String remove(
@@ -104,16 +103,17 @@ public class TermController extends BaseController implements BaseControllerInte
 	) {
 		
 		condition.setRedirect(true);
-		
 		Term target = new Term();
-		target.setId(condition.getId());
-		target.setVersion(Long.parseLong(condition.getVersion()));
-		_ts.delete(target);
+		
+		try {
+			target.setId(condition.getId());
+			target.setVersion(Long.parseLong(condition.getVersion()));
+			_ts.delete(target);
+		} catch (SqlExecutionException | IllegalAccessException | InvocationTargetException e) {
+			redirectAttributes.addFlashAttribute("errors", e.getStackTrace());
+		}
 		// redirect
 		redirectAttributes.addFlashAttribute("searchForm", condition);
-		// addFlashAttribute:modelで受け取るものしか返せない
-//		redirectAttributes.addFlashAttribute("parentId", condition.getParentId());
-//		redirectAttributes.addFlashAttribute("previousParams", condition.getPreviousParams());
 		return "redirect:" + SELF_URI_LOCAL;
 	}
 	

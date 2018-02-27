@@ -19,6 +19,7 @@ import org.fslabs.springbootdoma2freemarker.core.service.BaseService;
 import org.seasar.doma.jdbc.SelectOptions;
 import org.seasar.doma.jdbc.SqlExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
@@ -110,10 +111,13 @@ public class TaxonomyService extends BaseService {
 	/**
 	 * 削除処理
 	 * @param taxonomyHeader
+	 * @throws InvocationTargetException 
+	 * @throws IllegalAccessException 
 	 */
-	public void delete(Taxonomy taxonomy) {
+	public void delete(Taxonomy taxonomy) throws IllegalAccessException, InvocationTargetException, OptimisticLockingFailureException {
 		// 削除対象のEntityを取得
-		Taxonomy target = _tdao.findById(taxonomy.getId());
+		Taxonomy target = new Taxonomy();
+		BeanUtils.copyProperties(target, taxonomy);
 		_tdao.delete(target);
 	}
 	

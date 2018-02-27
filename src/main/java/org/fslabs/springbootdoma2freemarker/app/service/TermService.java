@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.fslabs.springbootdoma2freemarker.app.dao.TermsDao;
+import org.fslabs.springbootdoma2freemarker.app.dao.TermDao;
 import org.fslabs.springbootdoma2freemarker.app.dto.TermDto;
 import org.fslabs.springbootdoma2freemarker.app.entity.Term;
 import org.fslabs.springbootdoma2freemarker.app.entity.TermTaxonomy;
@@ -25,7 +25,7 @@ import org.springframework.validation.BindingResult;
 public class TermService extends BaseService {
 	
 	@Autowired
-	private TermsDao _tdao;
+	private TermDao _tdao;
 	
 	public TermDto searchData(String parentId, String keyword, SelectOptions options, String orderBy){
 		
@@ -75,9 +75,9 @@ public class TermService extends BaseService {
 	 * @param taxonomyHeader
 	 */
 	@Transactional
-	public void delete(Term term) {
-		// 削除対象のEntityを取得
-		Term target = _tdao.findById(term.getId());
+	public void delete(Term term) throws IllegalAccessException, InvocationTargetException, SqlExecutionException {
+		Term target = new Term();
+		BeanUtils.copyProperties(target, term);
 		_tdao.delete(target);
 	}
 	

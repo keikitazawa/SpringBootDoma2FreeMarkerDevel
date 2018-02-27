@@ -39,7 +39,7 @@
 <!--
 <#if errors?has_content>
 	<#list errors as e>
-		${e.field}:${e.code}:${e.defaultMessage}<br />
+		${e.field!}:${e.code!}:${e.defaultMessage!}<br />
 	</#list>
 </#if>
 -->

@@ -3,7 +3,6 @@ package org.fslabs.springbootdoma2freemarker.app.dao;
 
 import java.util.List;
 
-import org.fslabs.springbootdoma2freemarker.app.entity.Taxonomy;
 import org.fslabs.springbootdoma2freemarker.app.entity.Term;
 import org.fslabs.springbootdoma2freemarker.app.entity.TermTaxonomy;
 import org.seasar.doma.Dao;
@@ -16,7 +15,7 @@ import org.seasar.doma.jdbc.SelectOptions;
 
 @Dao
 @ConfigAutowireable
-public interface TermsDao {
+public interface TermDao {
 	
 	/**
 	 * id完全一致による１件検索
@@ -33,18 +32,6 @@ public interface TermsDao {
 	 */
 	@Select
 	public List<Term> selectByName(String name);
-	
-	/**
-	 * 親ID・キーワード検索（親IDを持たない）（ページネーション用）
-	 * TODO 必要性を検討
-	 * @param parentId
-	 * @param keyword
-	 * @param options
-	 * @param orderBy
-	 * @return
-	 */
-	@Select
-	public List<Term> findByKeyword(String parentId, String keyword, SelectOptions options, String orderBy);
 	
 	/**
 	 * 親ID・キーワード検索（Taxonomy情報を含む）（ページネーション用）
