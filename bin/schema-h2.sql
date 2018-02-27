@@ -1,4 +1,14 @@
-CREATE TABLE IF NOT EXISTS `Users` (
+
+
+DROP TABLE IF EXISTS `Users`;
+
+DROP TABLE IF EXISTS `Taxonomies`;
+
+DROP TABLE IF EXISTS `Terms`;
+
+DROP TABLE IF EXISTS `TermTrees`;
+
+CREATE TABLE `Users` (
    `version` bigint NOT NULL  DEFAULT '0' 
   ,`modified` timestamp NULL  DEFAULT CURRENT_TIMESTAMP 
   ,`deleted` timestamp NULL  
@@ -9,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `Users` (
   ,CONSTRAINT PK_Users PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS `Taxonomies` (
+CREATE TABLE `Taxonomies` (
    `version` bigint NOT NULL  DEFAULT '0' 
   ,`modified` timestamp NOT NULL  DEFAULT CURRENT_TIMESTAMP 
   ,`deleted` timestamp NULL  
@@ -21,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `Taxonomies` (
   ,CONSTRAINT IK_Taxonomies_deletedasc_weightasc UNIQUE (deleted asc, weight asc)
 );
 
-CREATE TABLE IF NOT EXISTS `Terms` (
+CREATE TABLE `Terms` (
    `version` bigint NOT NULL  DEFAULT '0' 
   ,`modified` timestamp NOT NULL  DEFAULT CURRENT_TIMESTAMP 
   ,`deleted` timestamp NULL  
@@ -34,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `Terms` (
   ,CONSTRAINT IK_Terms_deletedasc_parentidasc_weightasc UNIQUE (deleted asc, parent_id asc, weight asc)
 );
 
-CREATE TABLE IF NOT EXISTS `TermTrees` (
+CREATE TABLE `TermTrees` (
    `version` bigint NOT NULL  DEFAULT '0' 
   ,`parent_id` char(36) NOT NULL  
   ,`id` char(36) NOT NULL  
@@ -43,9 +53,9 @@ CREATE TABLE IF NOT EXISTS `TermTrees` (
 
 
 
-ALTER TABLE `Terms` ADD CONSTRAINT FK_Terms_parentid FOREIGN KEY (parent_id) REFERENCES Taxonomies(id);
+--ALTER TABLE `Taxonomies` ADD CONSTRAINT FK_Taxonomies_id FOREIGN KEY (id) REFERENCES terms(parent_id);
 
 
-ALTER TABLE `TermTrees` ADD CONSTRAINT FK_TermTrees_parentid FOREIGN KEY (parent_id) REFERENCES Terms(id);
-ALTER TABLE `TermTrees` ADD CONSTRAINT FK_TermTrees_id FOREIGN KEY (id) REFERENCES Terms(id);
+--ALTER TABLE `TermTrees` ADD CONSTRAINT FK_TermTrees_id FOREIGN KEY (id) REFERENCES terms(id);
+--ALTER TABLE `TermTrees` ADD CONSTRAINT FK_TermTrees_parentid FOREIGN KEY (parent_id) REFERENCES terms(id);
 

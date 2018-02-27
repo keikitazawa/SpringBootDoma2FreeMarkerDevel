@@ -52,10 +52,10 @@ spring:
       path: /console
       
   # spring-messages(単純なメッセージソース)
-#  messages:
-#    basename: classpath:i18n/messages
-#    cache-seconds: 0
-#    encoding: UTF-8
+  messages:
+    basename: classpath :i18n/messages
+    cache-seconds: 0
+    encoding: UTF-8
 ### End Spring ### 
 
 # doma
@@ -79,7 +79,7 @@ logging:
     root: info
     org.springframework.web: info
     logging.level.org.hibernate: info
-    org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer: off
+#    org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer: off
                           
 # security
 security:

@@ -9,17 +9,14 @@
 			<h1>${siteTitle}</h1>
 		</div>
 		<div class="col-md-4 form-group form-group-sm">
-				<input type="text" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
-				<input type="hidden" name="p" value="0" />
-				<input type="hidden" name="c" value="${condition.c!}" />
-				<input type="hidden" name="d" value="${condition.d!}" />
-				<#-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> -->
+			<input type="text" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
+			<input type="hidden" name="p" value="0" />
+			<input type="hidden" name="c" value="${condition.c!}" />
+			<input type="hidden" name="d" value="${condition.d!}" />
 		</div>
 		<div class="col-md-8">
 		</div>
 	</form>
-</div>
-<div class="row">
 </div>
 <div class="row">
 	<div class="col-md-1">
@@ -52,7 +49,8 @@
 	<div>
 		<div class="col-md-1">
 			<input type="checkbox" name="check" id="check_${r_index}" />
-			<input type="hidden" name="currentId" value="${r.id!}" />
+			<input type="hidden" name="id" value="${r.id!}" />
+			<input type="hidden" name="version" value="${r.version!}" />
 		</div>
 		<div class="col-md-3">
 			<span>${r.name!}</span>
@@ -65,7 +63,7 @@
 		</div>
 		<div class="col-md-3">
 			<button type="button" class="modifyData">編集</button>
-			ターム
+			<button type="button" class="listTerm">ターム</button>
 			<button type="button" class="removeData">削除</button>
 		</div>
 	</div>
@@ -86,27 +84,26 @@
 <div class="row">
 	<a href="/logout">ログアウト</a><br />
 </div>
-
-<form name="detailForm" method="post" action="${selfUri!}">
-	<#-- 削除条件 -->
+<#-- データ操作系処理のフォーム -->
+<form name="procForm" method="post" action="${selfUri!}">
+	<#-- 表示対象 -->
 	<input type="hidden" name="id" value="" />
+	<input type="hidden" name="version" value="" />
 	<#-- 検索条件 -->
-	<input type="hidden" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
+	<input type="hidden" name="searchKeyword" value="${condition.searchKeyword!}" />
 	<input type="hidden" name="p" value="${condition.p!}" />
 	<input type="hidden" name="c" value="${condition.c!}" />
 	<input type="hidden" name="d" value="${condition.d!}" />
 	<#-- csrf for detail window -->
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
-<form name="removeForm" id="RemoveForm" method="post" action="${selfUri!}/remove">
-	<#-- 削除条件 -->
-	<input type="hidden" name="id" value="" />
+<#-- term管理 -->
+<form name="nextForm" method="post" action="${termUri!}">
+	<#-- 表示対象 -->
+	<input type="hidden" name="parentId" />
 	<#-- 検索条件 -->
-	<input type="hidden" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
-	<input type="hidden" name="p" value="${condition.p!}" />
-	<input type="hidden" name="c" value="${condition.c!}" />
-	<input type="hidden" name="d" value="${condition.d!}" />
+	<input type="hidden" name="previousParams" />
 	<#-- csrf for detail window -->
-	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
 </@wrapper.main>

@@ -2,14 +2,14 @@ package org.fslabs.springbootdoma2freemarker.app.form;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.fslabs.springbootdoma2freemarker.core.form.BaseSearchForm;
-import org.fslabs.springbootdoma2freemarker.core.valid.annotation.NotEntry;
-import org.fslabs.springbootdoma2freemarker.core.valid.annotation.NotNumber;
 import org.fslabs.springbootdoma2freemarker.core.valid.group.EntryValidation;
 import org.fslabs.springbootdoma2freemarker.core.valid.group.StyleValidation;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class TaxonomyAdminDetailRegistForm extends BaseSearchForm {
 	
@@ -17,14 +17,15 @@ public class TaxonomyAdminDetailRegistForm extends BaseSearchForm {
 	private Timestamp modified;
 	private Timestamp deleted;
 	private String id;
-	@NotEntry(target="カテゴリー名", message="{messages.valid.empty}", groups=EntryValidation.class)
+	@NotEmpty(groups=EntryValidation.class)
 	@Size(max=128, groups=StyleValidation.class)
 	private String name;
 	private String description;
-	@NotEntry(target="重さ", message="{messages.valid.empty}", groups=EntryValidation.class)
-	@NotNumber(target="重さ", groups=StyleValidation.class)
+	@NotEmpty(groups=EntryValidation.class)
+	@Digits(integer=2, fraction=2, groups=StyleValidation.class)
 	@Min(value=0, groups=StyleValidation.class)
 	private String weight;
+	// 親画面の検索条件
 	private String searchKeyword;
 	
 	/**

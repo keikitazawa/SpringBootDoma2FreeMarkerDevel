@@ -5,7 +5,7 @@ select
 	tx.weight as taxonomy_weight 
 from 
 	Terms tr 
-inner join 
+left join 
 	Taxonomies tx
 on
 	tr.parent_id = tx.id

@@ -24,9 +24,6 @@ import org.seasar.doma.jdbc.SelectOptions;
 public interface TermTreesDao {
 	
 	@Select
-	public List<TermTree> findAll(SelectOptions options, String orderBy);
-	
-	@Select
 	public List<TermTreeTerm> findByKeyword(String parentId, String keyword, SelectOptions options, String orderBy);
 	
 	@Select

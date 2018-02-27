@@ -39,7 +39,7 @@ public class DomaSelectOptionsUtilTest {
 		SelectOptions so1 = DomaSelectOptionsUtil.get(0, 2);
 		SelectOptions so2 = DomaSelectOptionsUtil.get(20, 100);
 		
-		List<Taxonomy> list1 = _td.findAll(so1, null);
+		List<Taxonomy> list1 = _td.selectByName(null);
 		assertEquals(2, list1.size());
 	}
 }

@@ -12,6 +12,9 @@ insert into Terms(id, parent_id, name, description, weight) values('d344d8f7-99c
 insert into Terms(id, parent_id, name, description, weight) values('bb70eae3-5966-42cd-bc08-936ee47b4836', '9046bb3f-a560-47a5-9a9a-2fe8b076d91e', 'その他', 'desc:その他', 100);
 insert into Terms(id, parent_id, name, description, weight) values('a12ebe15-306c-4b25-8ca5-6f9b7cd27f2c', '9046bb3f-a560-47a5-9a9a-2fe8b076d91e', '物欲', 'desc:物欲', 31);
 insert into Terms(id, parent_id, name, description, weight) values('d60ffd1e-dc09-48d2-8a29-152e92ae8a48', '9046bb3f-a560-47a5-9a9a-2fe8b076d91e', '秋葉原', 'desc:秋葉原', 32);
+--insert into Terms(id, parent_id, name, description, weight) values('00000000-0000-0000-0000-000000000000', 'c68f3caf-6b69-4d66-88dd-086ae171c5c7', '親', 'システム予約設定値', 0);
+insert into Terms(id, parent_id, name, description, weight) values('ffff3caf-6555-4aaa-88dd-086ae17ccccc', 'c68f3caf-6b69-4d66-88dd-086ae171c5c7', '一般', 'テストカテゴリー一般', 1);
+
 
 insert into TermTrees(parent_id, id) values('00000000-0000-0000-0000-000000000000', '4b07fdb5-ae4c-4529-8c01-321c0859bb28');
 insert into TermTrees(parent_id, id) values('00000000-0000-0000-0000-000000000000', '01af6686-581a-46eb-9ef7-682311fbd917');

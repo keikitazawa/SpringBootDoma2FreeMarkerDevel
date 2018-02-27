@@ -6,7 +6,7 @@
 	</div>
 	<div class="col-md-12">
 		<a href="/admin/taxonomy">タクソノミー管理</a><br />
-		<a href="/admin/term">ターム管理</a><br />
+<!--		<a href="/admin/term">ターム管理</a><br />-->
 		<a href="/admin/termtree">タクソノミー階層管理</a><br />
 	</div>
 </div>

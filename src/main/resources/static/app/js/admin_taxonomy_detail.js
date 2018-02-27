@@ -3,8 +3,7 @@
  */
 $(function() {
 	var modalSite = new TaxonomyAdminDetail();
-	
-	
+	modalSite.ready();
 });
 
 TaxonomyAdminDetail = function(){};
@@ -12,9 +11,7 @@ TaxonomyAdminDetail = function(){};
  * 追加処理の実行
  * @returns
  */
-TaxonomyAdminDetail.prototype.ready = function(id){
-//	$("#RemoveForm").find("input[name=id]").val(id);
-//	$("#RemoveForm").submit();
+TaxonomyAdminDetail.prototype.ready = function(){
 };
 TaxonomyAdminDetail.prototype.save = function(){
 	$.ajax({
@@ -25,6 +22,8 @@ TaxonomyAdminDetail.prototype.save = function(){
 		url: "/admin/taxonomy_detail/regist",
 		data: $("form[name=modalRegistForm]").serialize()
 	})
+	// TODO 正常・異常の処理を統一する
+	// TODO location.reload()だとリロード確認のダイアログが出るので検索条件をシリアライズして渡す必要がある
 	.done(
 		function(data, textStatus, jqXHR){
 			if (data == undefined){

@@ -22,3 +22,15 @@ QueryString.prototype.build = function() {
 	}
 	return queryString;
 };
+
+var Url = function(url){
+	this.url = url
+}
+Url.prototype.getQueryString = function() {
+	var urls = this.url.split("?");
+	var ret = "";
+	if (urls.length > 1){
+		ret = urls[1];
+	}
+	return ret;
+}

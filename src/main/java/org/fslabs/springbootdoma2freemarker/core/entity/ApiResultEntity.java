@@ -2,12 +2,17 @@ package org.fslabs.springbootdoma2freemarker.core.entity;
 
 import java.util.List;
 
+/**
+ * jsonで返すためのEntity
+ * @author kitaz
+ *
+ */
 public class ApiResultEntity {
 	
 	/**
 	 * エラーコード等を返す
 	 */
-	private int result;
+	private int result = -1;
 	/**
 	 * API出力用
 	 */
@@ -16,6 +21,8 @@ public class ApiResultEntity {
 	 * エラー出力用
 	 */
 	private List<?> errors;
+	
+	/** getter/setter **/
 	/**
 	 * @return result
 	 */

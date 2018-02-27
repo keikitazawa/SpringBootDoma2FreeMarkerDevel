@@ -10,18 +10,13 @@ import org.fslabs.springbootdoma2freemarker.app.entity.Taxonomy;
 import org.fslabs.springbootdoma2freemarker.app.form.TaxonomyAdminSearchForm;
 import org.fslabs.springbootdoma2freemarker.app.service.TaxonomyService;
 import org.fslabs.springbootdoma2freemarker.core.controller.BaseController;
-import org.fslabs.springbootdoma2freemarker.core.controller.BaseControllerInterface;
 import org.fslabs.springbootdoma2freemarker.core.entity.DomaPagerEntity;
 import org.fslabs.springbootdoma2freemarker.core.util.DomaSelectOptionsUtil;
 import org.fslabs.springbootdoma2freemarker.core.util.OrderByUtil;
-import org.fslabs.springbootdoma2freemarker.core.valid.group.ValidationSequence;
 import org.seasar.doma.jdbc.SelectOptions;
-import org.seasar.doma.jdbc.SqlExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,12 +29,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 @Controller
 @RequestMapping(value="/admin/taxonomy")
-public class TaxonomyController extends BaseController implements BaseControllerInterface {
+public class TaxonomyController extends BaseController {
 	
 	private final String SELF_URI_LOCAL = "/admin/taxonomy";
+	private final String TERM_URI_LOCAL = "/admin/term";
 	
 	@Autowired
-	private TaxonomyService _ths;
+	private TaxonomyService _ts;
 
 	/**
 	 * 表示処理
@@ -77,52 +73,6 @@ public class TaxonomyController extends BaseController implements BaseController
 	}
 	
 	/**
-	 * 登録してから表示処理へリダイレクト
-	 * @param condition
-	 * @param reginput
-	 * @param redirectAttributes
-	 * @param model
-	 * @return
-	 * @throws InvocationTargetException 
-	 * @throws IllegalAccessException 
-	 */
-	@RequestMapping(value="/regist", method = RequestMethod.POST)
-	public String regist(
-			@ModelAttribute(value="registForm") @Validated(ValidationSequence.class) TaxonomyAdminSearchForm condition,
-            BindingResult bindingResult,
-			RedirectAttributes redirectAttributes, 
-			Model model
-	) {
-		
-		condition.setRedirect(true);
-		redirectAttributes.addFlashAttribute("searchForm", condition);
-		
-		// validation
-        if (bindingResult.hasErrors()) {
-    	    redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-    		return "redirect:" + SELF_URI_LOCAL;
-        }
-        
-        // regist
-		Taxonomy target = new Taxonomy();
-		try {
-			BeanUtils.copyProperties(target, condition);
-			_ths.insert(target);
-		} catch (IllegalAccessException | InvocationTargetException | SqlExecutionException e) {
-			e.printStackTrace();
-    	    redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-    		return "redirect:" + SELF_URI_LOCAL;
-		}
-		
-		// 正常終了は入力項目を消す
-		condition.setName("");
-		condition.setDescription("");
-		condition.setWeight("");
-		redirectAttributes.addFlashAttribute("searchForm", condition);
-		return "redirect:" + SELF_URI_LOCAL;
-	}
-	
-	/**
 	 * 削除してから表示処理へリダイレクト
 	 * @param pageable
 	 * @param condition
@@ -135,7 +85,7 @@ public class TaxonomyController extends BaseController implements BaseController
 	 */
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
 	public String remove(
-            @ModelAttribute(value="removeForm") TaxonomyAdminSearchForm condition,
+            @ModelAttribute TaxonomyAdminSearchForm condition,
 			RedirectAttributes redirectAttributes, 
 			Model model
 	) {
@@ -144,15 +94,8 @@ public class TaxonomyController extends BaseController implements BaseController
 		
 		Taxonomy target = new Taxonomy();
 		target.setId(condition.getId());
-		try {
-			_ths.delete(target);
-		} catch (SqlExecutionException e) {
-			System.out.println("SqlExecutionException");
-			e.printStackTrace();
-			System.out.println("/SqlExecutionException");
-		} catch (RuntimeException e) {
-			System.out.println("Exeption");
-		}
+		target.setVersion(Long.parseLong(condition.getVersion()));
+		_ts.delete(target);
 		// redirect
 		redirectAttributes.addFlashAttribute("searchForm", condition);
 		return "redirect:" + SELF_URI_LOCAL;
@@ -164,8 +107,8 @@ public class TaxonomyController extends BaseController implements BaseController
 	 * @param pageable
 	 * @param form
 	 * @return
-	 * @throws InvocationTargetException 
-	 * @throws IllegalAccessException 
+	 * @throws InvocationTargetException
+	 * @throws IllegalAccessException
 	 */
 	private Model getData(TaxonomyAdminSearchForm condition, Model model) {
 		// PagerEntity
@@ -186,7 +129,7 @@ public class TaxonomyController extends BaseController implements BaseController
 		String orderBy = orderByUtil.getOrderBy();
 		
 		// Serviceに処理を渡す
-		TaxonomyDto dto = _ths.searchData(condition.getSearchKeyword(), selectOptions, orderBy);
+		TaxonomyDto dto = _ts.searchData(condition.getSearchKeyword(), selectOptions, orderBy);
 		
 		// map更新
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -205,11 +148,10 @@ public class TaxonomyController extends BaseController implements BaseController
 	/**
 	 * Controller共通で使う設定値を格納する
 	 *  →Controller共有するために第２引数以降は自由に設定する
-	 *  TODO スーパークラスに持っていけるか検討
 	 * @param map
 	 * @return
 	 */
-	public HashMap<String, Object> setAttributeToMap(HashMap<String, Object> map){
+	public HashMap<String, Object> setAttributeToMap(HashMap<String, Object> map) {
 		
 		map.put("siteTitle", "タクソノミー管理");
 		
@@ -225,15 +167,15 @@ public class TaxonomyController extends BaseController implements BaseController
 		
 		// 自身のURI
 		map.put("selfUri", SELF_URI_LOCAL);
+		map.put("termUri", TERM_URI_LOCAL);
 				
 		return map;
 	}
 	
 	/**
 	 * パラメータからソート順を取得する
-	 * TODO スーパークラスに持っていけるか検討
-	 * @param p カンマ区切りの番号
-	 * @return カンマ区切りのカラム名
+	 * @param p チルダ区切りの番号
+	 * @return チルダ区切りのカラム名
 	 */
 	public HashMap<String, String> getColumnNames() {
 		HashMap<String, String> ret = new HashMap<String, String>();

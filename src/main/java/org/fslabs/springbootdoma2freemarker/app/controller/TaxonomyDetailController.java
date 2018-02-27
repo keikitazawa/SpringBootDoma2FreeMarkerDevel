@@ -48,13 +48,20 @@ public class TaxonomyDetailController extends BaseController implements BaseCont
 	 */
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
 	public String index(
-			@ModelAttribute(value="searchForm") TaxonomyAdminSearchForm condition,
+			@ModelAttribute(value="procForm") TaxonomyAdminSearchForm condition,
 			Model model
 	) {
 		model = this.getOne(condition, model);
 		return "admin_taxonomy_detail";
 	}
 	
+	/**
+	 * ajax経由の登録・更新処理
+	 * @param condition
+	 * @param bindingResult
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/regist", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
 	public ApiResultEntity regist(
@@ -62,33 +69,15 @@ public class TaxonomyDetailController extends BaseController implements BaseCont
             BindingResult bindingResult,
 			Model model
 	) {
-		
+		// APIの戻り値
 		ApiResultEntity ret = new ApiResultEntity();
-		ret.setResult(-1);
-		
 		// validation
         if (bindingResult.hasErrors()) {
     		ret.setErrors(bindingResult.getAllErrors());
-    		return ret;
+        } else {
+        	ret = _ts.regist(ret, condition, bindingResult);
         }
-        
-        // regist
-		Taxonomy target = new Taxonomy();
-		try {
-			BeanUtils.copyProperties(target, condition);
-			if (target.getId().length() > 0) {
-				_ts.update(target);
-			}else {
-				_ts.insert(target);				
-			}
-		} catch (IllegalAccessException | InvocationTargetException | SqlExecutionException e) {
-			e.printStackTrace();
-    		ret.setErrors(bindingResult.getAllErrors());
-    		return ret;
-   		}
-		ret.setResult(0);
-		
-		return ret;
+        return ret;
 	}
 	
 
@@ -124,42 +113,6 @@ public class TaxonomyDetailController extends BaseController implements BaseCont
 		return ret;
 	}
 	
-//	/**
-//	 * 削除してから表示処理へリダイレクト
-//	 * @param pageable
-//	 * @param condition
-//	 * @param reginput
-//	 * @param redirectAttributes
-//	 * @param model
-//	 * @return
-//	 * @throws InvocationTargetException 
-//	 * @throws IllegalAccessException 
-//	 */
-//	@RequestMapping(value="/remove", method = RequestMethod.POST)
-//	public String remove(
-//            @ModelAttribute(value="removeForm") TaxonomyAdminSearchForm condition,
-//			RedirectAttributes redirectAttributes, 
-//			Model model
-//	) {
-//		
-//		condition.setRedirect(true);
-//		
-//		Taxonomy target = new Taxonomy();
-//		target.setId(condition.getId());
-//		try {
-//			_ths.delete(target);
-//		} catch (SqlExecutionException e) {
-//			System.out.println("SqlExecutionException");
-//			e.printStackTrace();
-//			System.out.println("/SqlExecutionException");
-//		} catch (RuntimeException e) {
-//			System.out.println("Exeption");
-//		}
-//		// redirect
-//		redirectAttributes.addFlashAttribute("searchForm", condition);
-//		return "redirect:" + SELF_URI_LOCAL;
-//	}
-	
 	/** private **/
 	/**
 	 * １件取得
@@ -192,7 +145,6 @@ public class TaxonomyDetailController extends BaseController implements BaseCont
 	/**
 	 * Controller共通で使う設定値を格納する
 	 *  →Controller共有するために第２引数以降は自由に設定する
-	 *  TODO スーパークラスに持っていけるか検討
 	 * @param map
 	 * @return
 	 */
@@ -216,7 +168,6 @@ public class TaxonomyDetailController extends BaseController implements BaseCont
 	
 	/**
 	 * パラメータからソート順を取得する
-	 * TODO スーパークラスに持っていけるか検討
 	 * @param p カンマ区切りの番号
 	 * @return カンマ区切りのカラム名
 	 */

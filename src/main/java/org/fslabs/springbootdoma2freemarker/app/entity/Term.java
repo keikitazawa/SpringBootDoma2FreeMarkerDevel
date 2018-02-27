@@ -10,7 +10,7 @@ import org.seasar.doma.Table;
 import org.seasar.doma.Version;
 
 @Entity
-@Table(name="Term")
+@Table(name="Terms")
 public class Term implements Serializable {
 
 	/**
@@ -33,7 +33,7 @@ public class Term implements Serializable {
 	private String id;
 	
 	@Column(name="parent_id")
-	private String parent_id;
+	private String parentId;
 	
 	@Column(name="name")
 	private String name;
@@ -73,10 +73,10 @@ public class Term implements Serializable {
 	}
 
 	/**
-	 * @return parent_id
+	 * @return parentId
 	 */
-	public String getParent_id() {
-		return parent_id;
+	public String getParentId() {
+		return parentId;
 	}
 
 	/**
@@ -129,10 +129,10 @@ public class Term implements Serializable {
 	}
 
 	/**
-	 * @param parent_id セットする parent_id
+	 * @param parentId セットする parentId
 	 */
-	public void setParent_id(String parent_id) {
-		this.parent_id = parent_id;
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
 	}
 
 	/**

@@ -9,23 +9,32 @@ $(function() {
 	// 削除処理
 	$(".removeData").click(
 		function(){
-			var targetId = $(this).parent().parent().find("input[name=currentId]").val();
-			site.remove(targetId);
+			var id = $(this).parent().parent().find("input[name=id]").val();
+			var version = $(this).parent().parent().find("input[name=version]").val();
+			site.remove(id, version);
 		}
 	);
-	// 追加処理
+	// 追加画面の表示
 	$(".addData").click(
 		function(){
 			var targetId = "";
 			site.edit(targetId);
 		}
 	);
-	// 編集処理
+	// 編集画面の表示
 	$(".modifyData").click(
 		function(){
-			var targetId = $(this).parent().parent().find("input[name=currentId]").val();
-			site.edit(targetId);
+			var id = $(this).parent().parent().find("input[name=id]").val();
+			site.edit(id);
 		}
+	);
+	
+	// タームの表示
+	$(".listTerm").click(
+		function(){
+			var id = $(this).parent().parent().find("input[name=id]").val();
+			site.list(id);
+		}	
 	);
 });
 
@@ -34,25 +43,24 @@ TaxonomyAdmin = function(){};
  * 削除処理の実行
  * @returns
  */
-TaxonomyAdmin.prototype.remove = function(id){
-	$("#RemoveForm").find("input[name=id]").val(id);
-	$("#RemoveForm").submit();
+TaxonomyAdmin.prototype.remove = function(id, version){
+	$("form[name=procForm]").find("input[name=id]").val(id);
+	$("form[name=procForm]").find("input[name=version]").val(version);
+	$("form[name=procForm]").prop("action", "/admin/taxonomy/remove");
+	$("form[name=procForm]").submit();
 };
+// 追加・編集ダイアログの出力
 TaxonomyAdmin.prototype.edit = function(id){
+	// idをmodal出力フォームに設定
+	$("form[name=procForm]").find("input[name=id]").val(id);
+	$("form[name=procForm]").find("input[name=version]").val(0);
 	$.ajax({
 		async: false,
 		cache: false,
 		dataType: "html",
 		type: "POST",
 		url: "/admin/taxonomy_detail",
-		data: {
-			"_csrf" : $("form[name=detailForm] input[name=_csrf]").val(),
-			"id"    : id,
-			"p"     : $("form[name=detailForm] input[name=p]").val(),
-			"c"     : $("form[name=detailForm] input[name=c]").val(),
-			"d"     : $("form[name=detailForm] input[name=d]").val(),
-			"searchKeyword" : $("form[name=detailForm] input[name=searchKeyword]").val()
-		}
+		data: $("form[name=procForm]").serialize()
 	})
 	.done(
 		function(data, textStatus, jqXHR){
@@ -69,6 +77,12 @@ TaxonomyAdmin.prototype.edit = function(id){
 			
 		}
 	);
+};
+TaxonomyAdmin.prototype.list = function(id){
+	var qs = new Url(location.href);
+	$("form[name=nextForm]").find("input[name=parentId]").val(id);
+	$("form[name=nextForm]").find("input[name=previousParams]").val(qs.getQueryString());
+	$("form[name=nextForm]").submit();
 };
 
 /**
@@ -93,9 +107,4 @@ function openDialog(data){
 		}
 	});
 }
-/**
- * データを元画面に渡す
- */
-function relayParam(result){
-	$("#ModalResult").val(result);
-}
+

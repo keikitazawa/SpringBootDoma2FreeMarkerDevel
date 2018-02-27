@@ -7,6 +7,7 @@ package org.fslabs.springbootdoma2freemarker.app.dto;
 
 import java.util.List;
 
+import org.fslabs.springbootdoma2freemarker.app.entity.Term;
 import org.fslabs.springbootdoma2freemarker.app.entity.TermTaxonomy;
 
 /**
@@ -15,15 +16,27 @@ import org.fslabs.springbootdoma2freemarker.app.entity.TermTaxonomy;
  */
 public class TermDto {
 	
+	private Term term;
 	private List<TermTaxonomy> TaxonomyInfo;
-
+	
+	/**
+	 * @return term
+	 */
+	public Term getTerm() {
+		return term;
+	}
 	/**
 	 * @return taxonomyInfo
 	 */
 	public List<TermTaxonomy> getTaxonomyInfo() {
 		return TaxonomyInfo;
 	}
-
+	/**
+	 * @param term セットする term
+	 */
+	public void setTerm(Term term) {
+		this.term = term;
+	}
 	/**
 	 * @param taxonomyInfo セットする taxonomyInfo
 	 */
