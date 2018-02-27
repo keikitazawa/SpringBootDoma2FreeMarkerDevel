@@ -5,7 +5,7 @@
 		<h1>テストページ </h1>
 	</div>
 	<div class="col-md-12">
-		<a href="/admin/taxonomies">タクソノミー管理</a>
+		<a href="/admin/taxonomy">タクソノミー管理</a>
 	</div>
 </div>
 <div class="row">

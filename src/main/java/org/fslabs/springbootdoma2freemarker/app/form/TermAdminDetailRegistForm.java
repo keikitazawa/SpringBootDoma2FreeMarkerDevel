@@ -1,159 +1,163 @@
-package org.fslabs.springbootdoma2freemarker.app.entity;
+/**
+ * 
+ */
+package org.fslabs.springbootdoma2freemarker.app.form;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 
-import org.seasar.doma.Column;
-import org.seasar.doma.Entity;
-import org.seasar.doma.Id;
-import org.seasar.doma.Table;
-import org.seasar.doma.Version;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
-@Entity
-@Table(name="Terms")
-public class Term implements Serializable {
+import org.fslabs.springbootdoma2freemarker.core.form.BaseSearchForm;
+import org.fslabs.springbootdoma2freemarker.core.valid.group.EntryValidation;
+import org.fslabs.springbootdoma2freemarker.core.valid.group.StyleValidation;
+import org.hibernate.validator.constraints.NotEmpty;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1764104046776881026L;
+
+/**
+ * @author kitaz
+ *
+ */
+public class TermAdminDetailRegistForm extends BaseSearchForm {
 	
-	@Column(name="version")
-	@Version
-	private long version;
-	
-	@Column(name="modified")
+	private String version;
 	private Timestamp modified;
-	
-	@Column(name="deleted")
 	private Timestamp deleted;
-	
-	@Id
-	@Column(name="id")
 	private String id;
 	
-	@Column(name="parent_id")
+	// TODO 変数はcamelcase、tableはsnakecase
+	@NotEmpty(groups=EntryValidation.class)
 	private String parentId;
-	
-	@Column(name="name")
+	@NotEmpty(groups=EntryValidation.class)
+	@Size(max=128, groups=StyleValidation.class)
 	private String name;
-	
-	@Column(name="description")
 	private String description;
-	
-	@Column(name="weight")
-	private long weight;
+	@NotEmpty(groups=EntryValidation.class)
+	@Min(value=0, groups=StyleValidation.class)
+	private String weight;
+	// 親画面の検索条件
+	private String searchKeyword;
+	private String searchParentId;
 
+	/** getter/setter **/
 	/**
 	 * @return version
 	 */
-	public long getVersion() {
+	public String getVersion() {
 		return version;
 	}
-
 	/**
 	 * @return modified
 	 */
 	public Timestamp getModified() {
 		return modified;
 	}
-
 	/**
 	 * @return deleted
 	 */
 	public Timestamp getDeleted() {
 		return deleted;
 	}
-
 	/**
 	 * @return id
 	 */
 	public String getId() {
 		return id;
 	}
-
 	/**
 	 * @return parentId
 	 */
 	public String getParentId() {
 		return parentId;
 	}
-
 	/**
 	 * @return name
 	 */
 	public String getName() {
 		return name;
 	}
-
 	/**
 	 * @return description
 	 */
 	public String getDescription() {
 		return description;
 	}
-
 	/**
 	 * @return weight
 	 */
-	public long getWeight() {
+	public String getWeight() {
 		return weight;
 	}
-
+	/**
+	 * @return searchKeyword
+	 */
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	/**
+	 * @return searchParentId
+	 */
+	public String getSearchParentId() {
+		return searchParentId;
+	}
 	/**
 	 * @param version セットする version
 	 */
-	public void setVersion(long version) {
+	public void setVersion(String version) {
 		this.version = version;
 	}
-
 	/**
 	 * @param modified セットする modified
 	 */
 	public void setModified(Timestamp modified) {
 		this.modified = modified;
 	}
-
 	/**
 	 * @param deleted セットする deleted
 	 */
 	public void setDeleted(Timestamp deleted) {
 		this.deleted = deleted;
 	}
-
 	/**
 	 * @param id セットする id
 	 */
 	public void setId(String id) {
 		this.id = id;
 	}
-
 	/**
 	 * @param parentId セットする parentId
 	 */
 	public void setParentId(String parentId) {
 		this.parentId = parentId;
 	}
-
 	/**
 	 * @param name セットする name
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	/**
 	 * @param description セットする description
 	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 	/**
 	 * @param weight セットする weight
 	 */
-	public void setWeight(long weight) {
+	public void setWeight(String weight) {
 		this.weight = weight;
 	}
+	/**
+	 * @param searchKeyword セットする searchKeyword
+	 */
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+	/**
+	 * @param searchParentId セットする searchParentId
+	 */
+	public void setSearchParentId(String searchParentId) {
+		this.searchParentId = searchParentId;
+	}
 }
-

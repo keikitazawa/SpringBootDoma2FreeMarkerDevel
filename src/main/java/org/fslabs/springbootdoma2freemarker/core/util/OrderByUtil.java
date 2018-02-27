@@ -42,7 +42,7 @@ public class OrderByUtil {
 	
 	/** for Pagination parameter **/
 	/**
-	 * パラメータのカンマ区切りから作成
+	 * パラメータのチルダ区切りから作成
 	 * @param sortColumns
 	 * @param sortDirection
 	 * @return
@@ -59,7 +59,10 @@ public class OrderByUtil {
 			for (int i = 0; i < minArray; i++) {
 				String column = targetColumns.get(columnsArray[i]);
 				String direction = this.directions.get(directionsArray[i]);
-				if (Objects.nonNull(column)) {
+				if (Objects.isNull(direction)) {
+					direction = this.directions.get("0");
+				}
+				if (Objects.nonNull(column) && Objects.nonNull(direction)) {
 					this.setOrderBy(column, direction);
 				}
 			}
@@ -97,7 +100,7 @@ public class OrderByUtil {
 	/** private **/
 	/**
 	 * order by 句を返す（LinkedHashMapで順番を保持）
-	 * @param LinkedHashMap orders<column, asc or desc>
+	 * @param LinkedHashMap orders<column, ASC or DESC>
 	 * @return
 	 */
 	private String build() {

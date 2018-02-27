@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package org.fslabs.springbootdoma2freemarker.app.controller;
 
 import java.lang.reflect.InvocationTargetException;
@@ -6,10 +11,13 @@ import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.fslabs.springbootdoma2freemarker.app.dto.TaxonomyDto;
-import org.fslabs.springbootdoma2freemarker.app.entity.Taxonomy;
-import org.fslabs.springbootdoma2freemarker.app.form.TaxonomyAdminSearchForm;
+import org.fslabs.springbootdoma2freemarker.app.dto.TermDto;
+import org.fslabs.springbootdoma2freemarker.app.entity.Term;
+import org.fslabs.springbootdoma2freemarker.app.form.TermAdminSearchForm;
 import org.fslabs.springbootdoma2freemarker.app.service.TaxonomyService;
+import org.fslabs.springbootdoma2freemarker.app.service.TermService;
 import org.fslabs.springbootdoma2freemarker.core.controller.BaseController;
+import org.fslabs.springbootdoma2freemarker.core.controller.BaseControllerInterface;
 import org.fslabs.springbootdoma2freemarker.core.entity.DomaPagerEntity;
 import org.fslabs.springbootdoma2freemarker.core.util.DomaSelectOptionsUtil;
 import org.fslabs.springbootdoma2freemarker.core.util.OrderByUtil;
@@ -28,21 +36,21 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author kitaz
  */
 @Controller
-@RequestMapping(value="/admin/taxonomy")
-public class TaxonomyController extends BaseController {
+@RequestMapping(value="/admin/term")
+public class TermController extends BaseController implements BaseControllerInterface {
 	
-	private final String SELF_URI_LOCAL = "/admin/taxonomy";
-	private final String TERM_URI_LOCAL = "/admin/term";
+	private final String SELF_URI_LOCAL = "/admin/term";
 	
 	@Autowired
-	private TaxonomyService _ts;
-
+	private TermService _ts;
+	@Autowired
+	private TaxonomyService _txs;
+	
 	/**
-	 * 表示処理
-	 * @param condition
+	 * 初期表示
+	 * @param pageable
 	 * @param model
 	 * @return
-	 *  ソート設定がある場合のキーワード検索
 	 */
 	@RequestMapping(value="", method = {RequestMethod.GET, RequestMethod.POST})
 	public String index(
@@ -52,9 +60,11 @@ public class TaxonomyController extends BaseController {
 			@RequestParam(defaultValue="0") String c,
 			@RequestParam(defaultValue="0") String d,
 			@RequestParam(defaultValue="") String searchKeyword,
+			@RequestParam(defaultValue="") String parentId,
+			@RequestParam(defaultValue="") String previousParams,
 			// for Post (キーワード検索(Getでやってる))
-			@ModelAttribute(value="searchForm") TaxonomyAdminSearchForm condition,
-			Model model
+            @ModelAttribute(name="searchForm") TermAdminSearchForm condition,
+            Model model
 	) {
 		/**
 		 * 初期表示：デフォルト設定
@@ -63,15 +73,18 @@ public class TaxonomyController extends BaseController {
 		 */
 		// リダイレクトされていない場合はパラメータから取得
 		if (!condition.isRedirect()) {
+			// getで渡されるものすべてをconditionに格納
 			condition.setP(p);
 			condition.setC(c);
 			condition.setD(d);
 			condition.setSearchKeyword(searchKeyword);
+			condition.setParentId(parentId);
+			condition.setPreviousParams(previousParams);
 		}
 		model = this.getData(condition, model);
-		return "admin_taxonomy";
+		return "admin_term";
 	}
-	
+
 	/**
 	 * 削除してから表示処理へリダイレクト
 	 * @param pageable
@@ -85,19 +98,22 @@ public class TaxonomyController extends BaseController {
 	 */
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
 	public String remove(
-            @ModelAttribute TaxonomyAdminSearchForm condition,
+            @ModelAttribute TermAdminSearchForm condition,
 			RedirectAttributes redirectAttributes, 
 			Model model
 	) {
 		
 		condition.setRedirect(true);
 		
-		Taxonomy target = new Taxonomy();
+		Term target = new Term();
 		target.setId(condition.getId());
 		target.setVersion(Long.parseLong(condition.getVersion()));
 		_ts.delete(target);
 		// redirect
 		redirectAttributes.addFlashAttribute("searchForm", condition);
+		// addFlashAttribute:modelで受け取るものしか返せない
+//		redirectAttributes.addFlashAttribute("parentId", condition.getParentId());
+//		redirectAttributes.addFlashAttribute("previousParams", condition.getPreviousParams());
 		return "redirect:" + SELF_URI_LOCAL;
 	}
 	
@@ -107,10 +123,8 @@ public class TaxonomyController extends BaseController {
 	 * @param pageable
 	 * @param form
 	 * @return
-	 * @throws InvocationTargetException
-	 * @throws IllegalAccessException
 	 */
-	private Model getData(TaxonomyAdminSearchForm condition, Model model) {
+	private Model getData(TermAdminSearchForm condition, Model model){
 		// PagerEntity
 		DomaPagerEntity domaPagerEntity = new DomaPagerEntity();
 		try {
@@ -127,9 +141,11 @@ public class TaxonomyController extends BaseController {
 		OrderByUtil orderByUtil = new OrderByUtil();
 		orderByUtil.buildOrders(condition.getC(), condition.getD(), this.getColumnNames());
 		String orderBy = orderByUtil.getOrderBy();
-		
 		// Serviceに処理を渡す
-		TaxonomyDto dto = _ts.searchData(condition.getSearchKeyword(), selectOptions, orderBy);
+		TermDto dto = _ts.searchData(condition.getParentId(), condition.getSearchKeyword(), selectOptions, orderBy);
+		
+		// taxonomyリスト
+		TaxonomyDto txDto = _txs.searchAllData(null);
 		
 		// map更新
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -137,7 +153,8 @@ public class TaxonomyController extends BaseController {
 		map = super.setPagerConfigToMap(map, domaPagerEntity, selectOptions.getCount());
 		// 条件とDTOを格納
 		map.put("condition", condition);
-		map.put("taxonomies", dto.getTaxonomies());
+		map.put("taxonomies", txDto.getTaxonomies());
+		map.put("terms", dto.getTaxonomyInfo());
 		map = this.setAttributeToMap(map);
 		// model挿入
 		model = super.setAttributesToModel(model, map);
@@ -153,7 +170,7 @@ public class TaxonomyController extends BaseController {
 	 */
 	public HashMap<String, Object> setAttributeToMap(HashMap<String, Object> map) {
 		
-		map.put("siteTitle", "タクソノミー管理");
+		map.put("siteTitle", "ターム管理");
 		
 		List<String> csss = super.setCsss();
 		csss.add("/app/css/taxonomy.css");
@@ -162,12 +179,11 @@ public class TaxonomyController extends BaseController {
 		List<String> jss = super.setJavaScripts();
 		jss.add("/common/js/common.js");
 		jss.add("/common/js/__pager.js");
-		jss.add("/app/js/admin_taxonomy.js");
+		jss.add("/app/js/admin_term.js");
 		map.put("jss", jss);
 		
 		// 自身のURI
 		map.put("selfUri", SELF_URI_LOCAL);
-		map.put("termUri", TERM_URI_LOCAL);
 				
 		return map;
 	}

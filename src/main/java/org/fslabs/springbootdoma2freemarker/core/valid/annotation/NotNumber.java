@@ -13,7 +13,7 @@ import org.fslabs.springbootdoma2freemarker.core.valid.validation.NotNumberValid
 
 
 /**
- * 自然数チェック
+ * 自然数チェック(int:as String)
  *　@param target エラー時に表示する入力項目の名称
  */
 @Documented

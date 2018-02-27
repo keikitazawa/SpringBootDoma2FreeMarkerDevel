@@ -6,8 +6,11 @@ package org.fslabs.springbootdoma2freemarker.core.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import org.fslabs.springbootdoma2freemarker.core.entity.DomaPagerEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.ui.Model;
 
 /**
@@ -16,7 +19,22 @@ import org.springframework.ui.Model;
  */
 public class BaseController {
 	
+	/** message **/
+	@Autowired
+	private MessageSource messageSource;
+	/**
+	 * errorCodeをキーとしてメッセージソースからメッセージを取得
+	 * Autowiredの対象にするためにControllerのスーパークラスに設置
+	 * @param errorCode キー
+	 * @param params {0}などのプレースホルダーに入れる値
+	 * @return
+	 */
+	public String getDefaultMessage(String errorCode, Object[] params) {
+		return messageSource.getMessage(errorCode, params, Locale.getDefault());
+	}
+	
 	/** template側操作 **/
+	// TODO そもそもスーパークラスに置くべきか？
 	/**
 	 * pager情報の取り込み
 	 * @param map model用のmap
@@ -70,6 +88,9 @@ public class BaseController {
 	 */
 	protected List<String> setJavaScripts() {
 		List<String> ret = new ArrayList<String>(); 
+		ret.add("/common/js/jquery-3.3.1.min.js");
+		ret.add("/common/js/jquery-ui.min.js");
+		ret.add("/bootstrap/js/bootstrap.min.js");
 		return ret;
 	}
 	
@@ -78,7 +99,8 @@ public class BaseController {
 	 * @return
 	 */
 	protected List<String> setCsss(){
-		List<String> ret = new ArrayList<String>(); 
+		List<String> ret = new ArrayList<String>();
+		ret.add("/common/css/jquery-ui.min.css");
 		ret.add("/bootstrap/css/bootstrap.min.css");
 		return ret;
 	}

@@ -38,12 +38,16 @@ main macro
 
 <#assign goToStartDisableClass = "">
 <#assign goToEndDisableClass = "">
+<#assign goToPreviousPage = "">
+<#assign goToNextPage = "">
 <#assign activeClass = "active">
 <#if pageNumber == 0>
 	<#assign goToStartDisableClass = "disabled ">
+	<#assign goToPreviousPage = "disabled ">
 </#if>
 <#if pageNumber gte (totalPage -1)>
 	<#assign goToEndDisableClass = "disabled ">
+	<#assign goToNextPage = "disabled ">
 </#if>
 
 
@@ -51,11 +55,13 @@ main macro
 <#if totalPage gt 0>
 <div class="text-center">
 	<ul id="${pagerId}" class="pagination">
-		<li class="${goToStartDisableClass}pagerGoToStart"><a href="#">&laquo;</a></li>
+		<li class="${goToStartDisableClass}changePage"><a href="#"><input type="hidden" class="page" value="0" />&laquo;</a></li>
+		<li class="${goToPreviousPage}changePage"><a href="#"><input type="hidden" class="page" value="${pageNumber -1}" />&lt;</a></li>
 <#list beginPageLink..(beginPageLink + pageLinkWidth -1) as page>
 		<li class="changePage<#if page == pageNumber> active</#if>"><input type="hidden" class="page" value="${page}" /><a href="#">${page +1}</a></li>
 </#list>
-		<li class="${goToEndDisableClass}pagerGoToEnd"><a href="#">&raquo;</a></li>
+		<li class="${goToNextPage}changePage"><a href="#"><input type="hidden" class="page" value="${pageNumber +1}" />&gt;</a></li>
+		<li class="${goToEndDisableClass}changePage"><a href="#"><input type="hidden" class="page" value="${totalPage -1}" />&raquo;</a></li>
 	</ul>
 	<!-- pagenumber=${pageNumber!}, resultCount=${totalCount!}, limit=${limit!}, width=${width!}, buffer=${buffer!} -->
 </div>

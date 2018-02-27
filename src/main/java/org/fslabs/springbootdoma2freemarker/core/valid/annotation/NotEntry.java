@@ -13,7 +13,7 @@ import org.fslabs.springbootdoma2freemarker.core.valid.validation.NotEntryValida
 
 
 /**
- * 入力チェック
+ * 入力チェック(String)
  *　@param target エラー時に表示する入力項目の名称
  */
 @Documented

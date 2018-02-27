@@ -1,10 +1,12 @@
 package org.fslabs.springbootdoma2freemarker.app.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.fslabs.springbootdoma2freemarker.core.controller.BaseController;
+import org.fslabs.springbootdoma2freemarker.core.controller.BaseControllerInterface;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value="/login")
-public class LoginController extends BaseController {
+public class LoginController extends BaseController implements BaseControllerInterface {
+	
+	private final String SELF_URI_LOCAL = "/login";
 	
 	HttpSessionCsrfTokenRepository httpSessionCsrfTokenRepository;
 	
@@ -30,7 +34,7 @@ public class LoginController extends BaseController {
 		map.put("demo_password", BCrypt.hashpw("demo", BCrypt.gensalt()));
 		
 		// Controller～model一括挿入
-		map = this.setAttributeToMap(map, request);
+		map = this.setAttributeToMap(map);
 		model = super.setAttributesToModel(model, map);
 		
 		return "login";
@@ -48,7 +52,7 @@ public class LoginController extends BaseController {
 		map.put("demo_password", BCrypt.hashpw("demo", BCrypt.gensalt()));
 		
 		// Controller～model一括挿入
-		map = this.setAttributeToMap(map, request);
+		map = this.setAttributeToMap(map);
 		model = super.setAttributesToModel(model, map);
 		
 		return "login";
@@ -60,18 +64,27 @@ public class LoginController extends BaseController {
 	 * @param map
 	 * @return
 	 */
-	private HashMap<String, Object> setAttributeToMap(
-		HashMap<String, Object> map, 
-		HttpServletRequest request) {
+	@Override
+	public HashMap<String, Object> setAttributeToMap(HashMap<String, Object> map) {
 		
 		map.put("siteTitle", "ログイン");
 		
-		String[] csss = {};
-		String[] jss = {"/app/js/login.js"};
-		
+		List<String> csss = super.setCsss();
 		map.put("csss", csss);
+		
+		List<String> jss = super.setJavaScripts();
+		jss.add("/common/js/login.js");
 		map.put("jss", jss);
-
+		
+		// 自身のURI
+		map.put("selfUri", SELF_URI_LOCAL);
+				
 		return map;
+	}
+
+	@Override
+	public HashMap<String, String> getColumnNames() {
+		HashMap<String, String> ret = new HashMap<String, String>();
+		return ret;
 	}
 }
