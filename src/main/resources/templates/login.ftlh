@@ -1,5 +1,5 @@
 <#import "/__wrapper.ftlh" as wrapper>
-<@wrapper.main>
+<@wrapper.header />
 <div class="row">
 	<div class="col-md-12">
 		<h1>ログイン画面 </h1>
@@ -29,4 +29,4 @@
 		demo password [${demo_password}]<br />
 	</div>
 </div>
-</@wrapper.main>
+<@wrapper.footer />

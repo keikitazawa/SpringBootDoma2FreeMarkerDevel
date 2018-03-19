@@ -1,5 +1,5 @@
 <#import "/__wrapper.ftlh" as wrapper>
-<@wrapper.main>
+<@wrapper.header />
 <div class="row">
 	<div class="col-md-12">
 		<h1>テストログイン成功 </h1>
@@ -15,4 +15,4 @@
 		<a href="/logout">ログアウト</a>
 	</div>
 </div>
-</@wrapper.main>
+<@wrapper.footer />

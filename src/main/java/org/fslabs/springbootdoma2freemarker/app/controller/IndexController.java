@@ -2,6 +2,7 @@ package org.fslabs.springbootdoma2freemarker.app.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,13 +68,17 @@ public class IndexController extends BaseController {
 
 		map.put("localurl", request.getRequestURL());
 		map.put("localuri", request.getRequestURI());
-		
-		String[] csss = {};
-		String[] jss = {};
-		
+
+		List<String> csss = super.setCsss();;
 		map.put("csss", csss);
+		
+		List<String> jss = super.setJavaScripts();
+		jss.add("/common/js/common.js");
+		jss.add("/common/js/__pager.js");
+		jss.add("/common/js/menu.js");
 		map.put("jss", jss);
-				
+		
+		
 		map.put("ee", "(￣д￣)ｴｰ");
 		return map;
 	}

@@ -2,39 +2,8 @@
 <#import "/__pager.ftlh" as pager>
 <#import "/__fielderror.ftlh" as fieldError>
 
-<@wrapper.main>
-<div class="row">
-	<form name="searchForm" method="get" action="${selfUri!}">
-		<div class="col-md-12">
-			<h1>${siteTitle}</h1>
-		</div>
-		<div class="col-md-4 form-group form-group-sm">
-			<input type="text" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
-			<input type="hidden" name="p" value="0" />
-			<input type="hidden" name="c" value="${condition.c!}" />
-			<input type="hidden" name="d" value="${condition.d!}" />
-		</div>
-		<div class="col-md-8">
-		</div>
-	</form>
-</div>
-<div class="row">
-	<div class="col-md-1">
-		選択<br />
-	</div>
-	<div class="col-md-3">
-		名称
-	</div>
-	<div class="col-md-4">
-		説明
-	</div>
-	<div class="col-md-1">
-		重さ
-	</div>
-	<div class="col-md-3">
-		操作
-	</div>
-</div>
+<@wrapper.header />
+
 <div class="row">
 <!--
 <#if errors?has_content>
@@ -45,29 +14,50 @@
 -->
 </div>
 <div class="row">
-<#list taxonomies as r>
-	<div>
-		<div class="col-md-1">
-			<input type="checkbox" name="check" id="check_${r_index}" />
-			<input type="hidden" name="id" value="${r.id!}" />
-			<input type="hidden" name="version" value="${r.version!}" />
-		</div>
-		<div class="col-md-3">
-			<span>${r.name!}</span>
-		</div>
-		<div class="col-md-4">
-			<span>${r.description!}</span>
-		</div>
-		<div class="col-md-1">
-			<span>${r.weight!}</span>
-		</div>
-		<div class="col-md-3">
-			<button type="button" class="modifyData">編集</button>
-			<button type="button" class="listTerm">ターム</button>
-			<button type="button" class="removeData">削除</button>
-		</div>
+	<div class="page-header">
+		<h1>${siteTitle}</h1>
 	</div>
+</div>
+<div class="row">
+	<form name="searchForm" method="get" action="${selfUri!}">
+		<div class="col-md-4 form-group form-group-sm">
+			<input type="text" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
+			<input type="hidden" name="p" value="0" />
+			<input type="hidden" name="c" value="${condition.c!}" />
+			<input type="hidden" name="d" value="${condition.d!}" />
+		</div>
+		<div class="col-md-8">
+		</div>
+	</form>
+</div>
+<div class="row table-responsive">
+	<table class="table table-striped table-condensed">
+	<thead>
+		<tr>
+			<th>名称</th>
+			<th>説明</th>
+			<th>重さ</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+<#list taxonomies as r>
+		<tr>
+			<td>${r.name!}</td>
+			<td>${r.description!}</td>
+			<td>${r.weight!}</td>
+			<td>
+				<input type="hidden" name="id" value="${r.id!}" />
+				<input type="hidden" name="version" value="${r.version!}" />
+				<!-- data-toggle等があるとメソッドでダイアログを動かせない -->
+				<button type="button" class="btn btn-sm btn-primary modifyData">編集</button>
+				<button type="button" class="btn btn-sm btn-primary listTerm">ターム</button>
+				<button type="button" class="btn btn-sm btn-primary removeData">削除</button>
+			</td>
+		</tr>
 </#list>
+	</tbody>
+	</table>
 </div>
 <div class="row">
 	<div class="col-md-9">
@@ -106,4 +96,5 @@
 	<#-- csrf for detail window -->
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
-</@wrapper.main>
+
+<@wrapper.footer />

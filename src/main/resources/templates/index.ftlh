@@ -1,5 +1,5 @@
 <#import "/__wrapper.ftlh" as wrapper>
-<@wrapper.main>
+<@wrapper.header />
 <div class="row">
 	<div class="col-md-12">
 		<h1>テストページ </h1>
@@ -28,4 +28,4 @@
 		UUID:${uuid}<br />
 	</div>
 </div>
-</@wrapper.main>
+<@wrapper.footer />

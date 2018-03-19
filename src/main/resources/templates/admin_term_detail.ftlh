@@ -1,7 +1,6 @@
 <#import "/__wrapper.ftlh" as wrapper>
 <#import "/__fielderror.ftlh" as fieldError>
-
-<@wrapper.main>
+<@wrapper.header />
 <div class="">
 <!--
 <#if errors?has_content>
@@ -60,4 +59,4 @@
 			<input type="hidden" name="d" value="${condition.d!}" />
 	</div>
 </form>
-</@wrapper.main>
+<@wrapper.footer />

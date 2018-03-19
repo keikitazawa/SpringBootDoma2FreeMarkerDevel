@@ -22,10 +22,11 @@ $(function() {
 		}
 	);
 	// 編集画面の表示
-	$(".modifyData").click(
+	$(".modifyData").click( 
 		function(){
 			var id = $(this).parent().parent().find("input[name=id]").val();
 			site.edit(id);
+			$("#DialogArea").modal("show");
 		}
 	);
 	
@@ -64,7 +65,7 @@ TaxonomyAdmin.prototype.edit = function(id){
 	})
 	.done(
 		function(data, textStatus, jqXHR){
-			openDialog(data);
+			$("#DialogArea").html(data);
 		}
 	)
 	.fail(
@@ -88,23 +89,23 @@ TaxonomyAdmin.prototype.list = function(id){
 /**
  * htmlをモーダルダイアログ領域に出力
  */
-function openDialog(data){
-	$("#DialogArea").html(data);
-	$("#DialogArea").dialog({
-		height: 400,
-		width: 700,
-		modal : true,
-		buttons:{
-			"保存": function(){
-				// submit処理をajaxで行い、正常終了の場合は画面全体の更新
-//				$("#DialogArea form[name=modalRegistForm]").submit();
-				var modalSite = new TaxonomyAdminDetail();
-				modalSite.save();
-		    },
-		    "閉じる": function(){
-				$(this).dialog("close");
-		    }
-		}
-	});
-}
+//function openDialog(data){
+//	$("#DialogArea").html(data);
+//	$("#DialogArea").dialog({
+//		height: 400,
+//		width: 700,
+//		modal : true,
+//		buttons:{
+//			"保存": function(){
+//				// submit処理をajaxで行い、正常終了の場合は画面全体の更新
+////				$("#DialogArea form[name=modalRegistForm]").submit();
+//				var modalSite = new TaxonomyAdminDetail();
+//				modalSite.save();
+//		    },
+//		    "閉じる": function(){
+//				$(this).dialog("close");
+//		    }
+//		}
+//	});
+//}
 

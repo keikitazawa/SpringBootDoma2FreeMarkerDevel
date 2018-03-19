@@ -1,5 +1,5 @@
 <#ftl strip_whitespace=true>
-<#macro main>
+<#macro header>
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
 <!DOCTYPE html>
 <html>
@@ -21,13 +21,13 @@
 	${exception}
 </div>
 </#if>
+</#macro>
 
-<#nested />
-
+<#macro footer>
 <!-- freemarker version: ${.version} -->
 </div>
 <!-- for Dialog -->
-<div id="DialogArea" class="" style="display: none;"></div>
+<div id="DialogArea" class="modal" tabindex="-1" role="dialog">ぺ</div>
 </body>
 </html>
 </#macro>

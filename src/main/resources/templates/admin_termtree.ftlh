@@ -1,7 +1,6 @@
 <#import "/__wrapper.ftlh" as wrapper>
 <#import "/__pager.ftlh" as pager>
-
-<@wrapper.main>
+<@wrapper.header />
 <div class="row">
 	<form name="searchForm" method="post" action="${selfUri!}">
 		<div class="col-md-12">
@@ -90,5 +89,5 @@
 	<br />
 	${role!}<br />
 </div>
-</@wrapper.main>
+<@wrapper.footer />
 

@@ -6,12 +6,24 @@ $(function() {
 	modalSite.ready();
 });
 
+
 TaxonomyAdminDetail = function(){};
 /**
  * 追加処理の実行
  * @returns
  */
 TaxonomyAdminDetail.prototype.ready = function(){
+	var root = this;
+	$(".btnClose").click(
+		function(){
+			$("#DialogArea").modal("hide");
+		}
+	);
+	$(".btnSave").click(
+		function(){
+			root.save();
+		}
+	);
 };
 TaxonomyAdminDetail.prototype.save = function(){
 	$.ajax({
@@ -23,17 +35,25 @@ TaxonomyAdminDetail.prototype.save = function(){
 		data: $("form[name=modalRegistForm]").serialize()
 	})
 	// TODO 正常・異常の処理を統一する
-	// TODO location.reload()だとリロード確認のダイアログが出るので検索条件をシリアライズして渡す必要がある
 	.done(
 		function(data, textStatus, jqXHR){
+			// ErrorListを空にする
+			$("#ErrorList li").not("#ErrorList-1").remove();
+			
 			if (data == undefined){
 				alert("null");
 			}else {
 				if (data.result == 0){
-					location.reload();
+					location.href = location.href;
 				} else{
 					for(var i = 0; i < data.errors.length; i++){
-						alert(data.errors[i].field + ":" + data.errors[i].defaultMessage);
+//						alert(data.errors[i].field + ":" + data.errors[i].defaultMessage);
+						$("#ErrorList li#ErrorList-1")
+							.clone(true)
+							.insertAfter("#ErrorList li#ErrorList-1")
+							.prop("id", "ErrorList" + i)
+							.text(data.errors[i].field + ":" + data.errors[i].defaultMessage)
+							.show();
 					}
 				}
 			}

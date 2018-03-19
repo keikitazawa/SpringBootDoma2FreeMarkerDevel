@@ -170,6 +170,7 @@ public class TaxonomyController extends BaseController {
 		jss.add("/common/js/common.js");
 		jss.add("/common/js/__pager.js");
 		jss.add("/app/js/admin_taxonomy.js");
+//		jss.add("/app/js/admin_taxonomy_detail.js");
 		map.put("jss", jss);
 		
 		// 自身のURI

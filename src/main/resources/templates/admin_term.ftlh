@@ -1,8 +1,7 @@
 <#import "/__wrapper.ftlh" as wrapper>
 <#import "/__pager.ftlh" as pager>
 <#import "/__fielderror.ftlh" as fieldError>
-
-<@wrapper.main>
+<@wrapper.header />
 <div class="row">
 	<form name="searchForm" method="get" action="${selfUri!}">
 		<div class="col-md-12">
@@ -102,4 +101,4 @@
 	<#-- csrf for detail window -->
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
-</@wrapper.main>
+<@wrapper.footer />
