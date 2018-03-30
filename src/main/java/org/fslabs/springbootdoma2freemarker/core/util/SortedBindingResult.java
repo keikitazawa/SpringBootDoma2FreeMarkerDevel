@@ -3,8 +3,7 @@ package org.fslabs.springbootdoma2freemarker.core.util;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.validation.FieldError;
@@ -20,33 +19,28 @@ public class SortedBindingResult {
 	}
 	
 	public List<FieldError> getErrors(){
-		List<FieldError> ret = new LinkedList<>();
+		List<FieldError> ret = new ArrayList<FieldError>();
 		
 		// field単位で取得
-		Field[] f = validateForm.getDeclaredFields();
-		for (Field l : f) {
-			System.out.println("Target Field is :" + l.getName());
+		Field[] fs = validateForm.getDeclaredFields();
+		for (Field f : fs) {
+//			System.out.println("Target Field is :" + f.getName());
 			
-    		Annotation[] a;
-			a = l.getAnnotations();
+    		Annotation[] aa = f.getAnnotations();
 			// アノテーションを順番に取得
-	    	for(Annotation aa : a) {
-	    		System.out.println("Annotation is :" + aa.annotationType().getName());
+	    	for (Annotation a : aa) {
+//	    		System.out.println("Annotation is :" + a.annotationType().getName());
 	    		
 	    		// すべてのエラーから指定フィールド～指定アノテーションを取得
 	    		for (FieldError fe : this.fieldErrors) {
-	    			for (String code : fe.getCodes()) {
-	    				System.out.println(aa.annotationType().getName() + "=" + code);
-	    				System.out.println(l.getName() + "=" + fe.getField());
-		    			if (aa.annotationType().getName().endsWith(code) && l.getName().equals(fe.getField())) {
-		    				ret.add(fe);
-		    			}
+//	    			System.out.println(a.annotationType().getName() + "=" + fe.getCode());
+//    				System.out.println(f.getName() + "=" + fe.getField());
+	    			if (a.annotationType().getName().endsWith(fe.getCode()) && f.getName().equals(fe.getField())) {
+	    				ret.add(fe);
 	    			}
 	    		}
     		}
 		}
-		// 逆順になるため
-		Collections.reverse(ret);
 		return ret;
 	}
 }
