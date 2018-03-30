@@ -53,7 +53,7 @@ TaxonomyAdminDetail.prototype.save = function(){
 						// cloneを直後に作成
 						$("#ErrorList #ErrorList-1")
 							.clone(true)
-							.insertAfter("#ErrorList #ErrorList-1")
+							.insertAfter("#ErrorList #ErrorList" + parseInt(i-1))
 							.prop("id", "ErrorList" + i)
 							.text(data.errors[i].field + ":" + data.errors[i].defaultMessage)
 							.show();
