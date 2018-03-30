@@ -34,12 +34,14 @@ TaxonomyAdminDetail.prototype.save = function(){
 		url: "/admin/taxonomy_detail/regist",
 		data: $("form[name=modalRegistForm]").serialize()
 	})
-	// TODO 正常・異常の処理を統一する
 	.done(
 		function(data, textStatus, jqXHR){
 			// ErrorListを空にする
-			$("#ErrorList li").not("#ErrorList-1").remove();
-			
+			$("#ErrorList").hide();
+			$("#ErrorList p").not("#ErrorList-1").remove();
+			// エラー表示を空にする
+			$("p.text-danger").remove();
+			$("div.has-error").removeClass("has-error");
 			if (data == undefined){
 				alert("null");
 			}else {
@@ -47,13 +49,21 @@ TaxonomyAdminDetail.prototype.save = function(){
 					location.href = location.href;
 				} else{
 					for(var i = 0; i < data.errors.length; i++){
-//						alert(data.errors[i].field + ":" + data.errors[i].defaultMessage);
-						$("#ErrorList li#ErrorList-1")
+						$("#ErrorList").show();
+						// cloneを直後に作成
+						$("#ErrorList #ErrorList-1")
 							.clone(true)
-							.insertAfter("#ErrorList li#ErrorList-1")
+							.insertAfter("#ErrorList #ErrorList-1")
 							.prop("id", "ErrorList" + i)
 							.text(data.errors[i].field + ":" + data.errors[i].defaultMessage)
 							.show();
+						$("[name=" + data.errors[i].field + "]")
+							.parent()
+							.append('<p class="text-danger">' + data.errors[i].defaultMessage + '</p>');
+						$("[name=" + data.errors[i].field + "]")
+							.parent()
+							.parent()
+							.addClass("has-error");
 					}
 				}
 			}

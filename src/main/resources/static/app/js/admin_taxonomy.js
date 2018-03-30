@@ -17,8 +17,11 @@ $(function() {
 	// 追加画面の表示
 	$(".addData").click(
 		function(){
-			var targetId = "";
-			site.edit(targetId);
+			var id = "";
+			site.edit(id);
+			// オーバーレイクリックでモーダル終了をさせない
+			$("#DialogArea").modal({backdrop:"static"})
+			$("#DialogArea").modal("show");
 		}
 	);
 	// 編集画面の表示
@@ -26,6 +29,8 @@ $(function() {
 		function(){
 			var id = $(this).parent().parent().find("input[name=id]").val();
 			site.edit(id);
+			// オーバーレイクリックでモーダル終了をさせない
+			$("#DialogArea").modal({backdrop:"static"})
 			$("#DialogArea").modal("show");
 		}
 	);
@@ -85,27 +90,4 @@ TaxonomyAdmin.prototype.list = function(id){
 	$("form[name=nextForm]").find("input[name=previousParams]").val(qs.getQueryString());
 	$("form[name=nextForm]").submit();
 };
-
-/**
- * htmlをモーダルダイアログ領域に出力
- */
-//function openDialog(data){
-//	$("#DialogArea").html(data);
-//	$("#DialogArea").dialog({
-//		height: 400,
-//		width: 700,
-//		modal : true,
-//		buttons:{
-//			"保存": function(){
-//				// submit処理をajaxで行い、正常終了の場合は画面全体の更新
-////				$("#DialogArea form[name=modalRegistForm]").submit();
-//				var modalSite = new TaxonomyAdminDetail();
-//				modalSite.save();
-//		    },
-//		    "閉じる": function(){
-//				$(this).dialog("close");
-//		    }
-//		}
-//	});
-//}
 

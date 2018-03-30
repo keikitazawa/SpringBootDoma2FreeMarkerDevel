@@ -19,7 +19,10 @@ $(function() {
 		function(){
 			var id = "";
 			var parentId = $(this).parent().find("input[name=parentId]").val();
-			site.edit(id, parentId);		
+			site.edit(id, parentId);
+			// オーバーレイクリックでモーダル終了をさせない
+			$("#DialogArea").modal({backdrop:"static"})
+			$("#DialogArea").modal("show");
 		}
 	);
 	// 編集画面の表示
@@ -28,6 +31,9 @@ $(function() {
 			var id = $(this).parent().parent().find("input[name=id]").val();
 			var parentId = $(this).parent().parent().find("input[name=parentId]").val();
 			site.edit(id, parentId);
+			// オーバーレイクリックでモーダル終了をさせない
+			$("#DialogArea").modal({backdrop:"static"})
+			$("#DialogArea").modal("show");
 		}
 	);
 	
@@ -65,7 +71,7 @@ TermAdmin.prototype.edit = function(id, parentId){
 	})
 	.done(
 		function(data, textStatus, jqXHR){
-			openDialog(data);
+			$("#DialogArea").html(data);
 		}
 	)
 	.fail(
@@ -78,26 +84,4 @@ TermAdmin.prototype.edit = function(id, parentId){
 			
 		}
 	);
-};
-/**
- * htmlをモーダルダイアログ領域に出力
- */
-function openDialog(data){
-	$("#DialogArea").html(data);
-	$("#DialogArea").dialog({
-		height: 400,
-		width: 700,
-		modal : true,
-		buttons:{
-			"保存": function(){
-				// submit処理をajaxで行い、正常終了の場合は画面全体の更新
-//				$("#DialogArea form[name=modalRegistForm]").submit();
-				var modalSite = new TermAdminDetail();
-				modalSite.save();
-		    },
-		    "閉じる": function(){
-				$(this).dialog("close");
-		    }
-		}
-	});
 };

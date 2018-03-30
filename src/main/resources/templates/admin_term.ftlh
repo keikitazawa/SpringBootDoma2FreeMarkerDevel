@@ -1,7 +1,9 @@
 <#import "/__wrapper.ftlh" as wrapper>
 <#import "/__pager.ftlh" as pager>
 <#import "/__fielderror.ftlh" as fieldError>
+
 <@wrapper.header />
+
 <div class="row">
 	<form name="searchForm" method="get" action="${selfUri!}">
 		<div class="col-md-12">
@@ -25,47 +27,33 @@
 		</div>
 	</form>
 </div>
-<div class="row">
-	<div class="col-md-1">
-		選択<br />
-	</div>
-	<div class="col-md-3">
-		カテゴリ
-	</div>
-	<div class="col-md-4">
-		名称
-	</div>
-	<div class="col-md-1">
-		重さ
-	</div>
-	<div class="col-md-3">
-		操作
-	</div>
-</div>
-<div class="row">
+<div class="row table-responsive">
+	<table class="table table-striped table-condensed">
+	<thead>
+		<tr>
+			<th>カテゴリ</th>
+			<th>名称</th>
+			<th>重さ</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
 <#list terms as r>
-	<div>
-		<div class="col-md-1">
-			<input type="checkbox" name="check" id="check_${r_index}" />
-			<input type="hidden" name="parentId" value="${r.parentId!}" />
-			<input type="hidden" name="id" value="${r.id!}" />
-			<input type="hidden" name="version" value="${r.version!}" />
-		</div>
-		<div class="col-md-3">
-			<span>${r.taxonomy_name!}</span>
-		</div>
-		<div class="col-md-4">
-			<span>${r.name!}</span>
-		</div>
-		<div class="col-md-1">
-			<span>${r.weight!}</span>
-		</div>
-		<div class="col-md-3">
-			<button type="button" class="modifyData">編集</button>
-			<button type="button" class="removeData">削除</button>
-		</div>
-	</div>
+		<tr>
+			<td>${r.taxonomy_name!}</td>
+			<td>${r.name!}</td>
+			<td>${r.weight!}</td>
+			<td>
+				<input type="hidden" name="parentId" value="${r.parentId!}" />
+				<input type="hidden" name="id" value="${r.id!}" />
+				<input type="hidden" name="version" value="${r.version!}" />
+				<button type="button" class="btn btn-sm btn-primary modifyData">編集</button>
+				<button type="button" class="btn btn-sm btn-primary removeData">削除</button>
+			</td>
+		</tr>
 </#list>
+	</tbody>
+	</table>
 </div>
 <div class="row">
 	<div class="col-md-9">
@@ -73,7 +61,7 @@
 	<div class="col-md-3">
 		<input type="hidden" name="parentId" value="${condition.parentId!}" />
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		<button class="addData">追加</button>
+		<button class="btn btn-primary addData">追加</button>
 	</div>
 </div>
 <div class="row">
@@ -101,4 +89,5 @@
 	<#-- csrf for detail window -->
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
+
 <@wrapper.footer />

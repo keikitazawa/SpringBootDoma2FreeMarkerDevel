@@ -27,7 +27,7 @@
 <!-- freemarker version: ${.version} -->
 </div>
 <!-- for Dialog -->
-<div id="DialogArea" class="modal" tabindex="-1" role="dialog">ぺ</div>
+<div id="DialogArea" class="modal fade" tabindex="-1" role="dialog">ぺ</div>
 </body>
 </html>
 </#macro>

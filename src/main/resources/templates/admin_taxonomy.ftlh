@@ -64,7 +64,7 @@
 	</div>
 	<div class="col-md-3">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		<button class="addData">追加</button>
+		<button class="btn btn-primary addData">追加</button>
 	</div>
 </div>
 <div class="row">
@@ -88,13 +88,14 @@
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
 <#-- term管理 -->
-<form name="nextForm" method="post" action="${termUri!}">
+<form name="nextForm" method="get" action="${termUri!}">
 	<#-- 表示対象 -->
 	<input type="hidden" name="parentId" />
 	<#-- 検索条件 -->
 	<input type="hidden" name="previousParams" />
-	<#-- csrf for detail window -->
+	<#-- csrf for detail window
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	 -->
 </form>
 
 <@wrapper.footer />
