@@ -12,7 +12,7 @@ import org.fslabs.springbootdoma2freemarker.app.service.TaxonomyService;
 import org.fslabs.springbootdoma2freemarker.core.controller.BaseController;
 import org.fslabs.springbootdoma2freemarker.core.controller.BaseControllerInterface;
 import org.fslabs.springbootdoma2freemarker.core.entity.ApiResultEntity;
-import org.fslabs.springbootdoma2freemarker.core.util.SortedBindingResult;
+import org.fslabs.springbootdoma2freemarker.core.util.ValidationErrorSotringUtil;
 import org.fslabs.springbootdoma2freemarker.core.valid.group.ValidationSequence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -72,7 +72,7 @@ public class TaxonomyDetailController extends BaseController implements BaseCont
 		// validation
         if (bindingResult.hasErrors()) {
         	// Validationの暫定対応
-    		SortedBindingResult sbr = new SortedBindingResult(bindingResult.getFieldErrors(),  TaxonomyAdminDetailRegistForm.class);
+    		ValidationErrorSotringUtil sbr = new ValidationErrorSotringUtil(bindingResult.getFieldErrors(),  TaxonomyAdminDetailRegistForm.class);
     		ret.setErrors(sbr.getErrors());
         } else {
         	ret = _ts.regist(ret, condition, bindingResult);

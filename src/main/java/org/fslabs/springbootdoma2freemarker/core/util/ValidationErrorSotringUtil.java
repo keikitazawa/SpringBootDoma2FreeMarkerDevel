@@ -8,12 +8,12 @@ import java.util.List;
 
 import org.springframework.validation.FieldError;
 
-public class SortedBindingResult {
+public class ValidationErrorSotringUtil {
 	
 	private List<FieldError> fieldErrors;
 	private Class<?> validateForm;
 	
-	public SortedBindingResult(List<FieldError> fieldErrors, Class<?> validateForm) {
+	public ValidationErrorSotringUtil(List<FieldError> fieldErrors, Class<?> validateForm) {
 		this.fieldErrors = fieldErrors;
 		this.validateForm = validateForm;
 	}
