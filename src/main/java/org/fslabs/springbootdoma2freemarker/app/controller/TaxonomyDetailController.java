@@ -1,11 +1,9 @@
 package org.fslabs.springbootdoma2freemarker.app.controller;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.fslabs.springbootdoma2freemarker.app.dto.TaxonomyDto;
 import org.fslabs.springbootdoma2freemarker.app.entity.Taxonomy;
 import org.fslabs.springbootdoma2freemarker.app.form.TaxonomyAdminDetailRegistForm;
@@ -14,8 +12,8 @@ import org.fslabs.springbootdoma2freemarker.app.service.TaxonomyService;
 import org.fslabs.springbootdoma2freemarker.core.controller.BaseController;
 import org.fslabs.springbootdoma2freemarker.core.controller.BaseControllerInterface;
 import org.fslabs.springbootdoma2freemarker.core.entity.ApiResultEntity;
+import org.fslabs.springbootdoma2freemarker.core.util.SortedBindingResult;
 import org.fslabs.springbootdoma2freemarker.core.valid.group.ValidationSequence;
-import org.seasar.doma.jdbc.SqlExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,53 +64,22 @@ public class TaxonomyDetailController extends BaseController implements BaseCont
 	@ResponseBody
 	public ApiResultEntity regist(
 			@ModelAttribute(value="modalRegistForm") @Validated(ValidationSequence.class) TaxonomyAdminDetailRegistForm condition,
-            BindingResult bindingResult,
+			BindingResult bindingResult,
 			Model model
 	) {
 		// APIの戻り値
 		ApiResultEntity ret = new ApiResultEntity();
 		// validation
         if (bindingResult.hasErrors()) {
-    		ret.setErrors(bindingResult.getAllErrors());
+        	// Validationの暫定対応
+    		SortedBindingResult sbr = new SortedBindingResult(bindingResult.getFieldErrors(),  TaxonomyAdminDetailRegistForm.class);
+    		ret.setErrors(sbr.getErrors());
         } else {
         	ret = _ts.regist(ret, condition, bindingResult);
         }
         return ret;
 	}
-	
 
-	@RequestMapping(value="/modify", method = RequestMethod.POST)
-	@ResponseBody
-	public ApiResultEntity modify(
-			@ModelAttribute(value="modalRegistForm") @Validated(ValidationSequence.class) TaxonomyAdminDetailRegistForm condition,
-            BindingResult bindingResult,
-			Model model
-	) {
-		
-		ApiResultEntity ret = new ApiResultEntity();
-		ret.setResult(-1);
-		
-		// validation
-        if (bindingResult.hasErrors()) {
-    		ret.setErrors(bindingResult.getAllErrors());
-    		return ret;
-        }
-        
-        // regist
-		Taxonomy target = new Taxonomy();
-		try {
-			BeanUtils.copyProperties(target, condition);
-			_ts.update(target);
-		} catch (IllegalAccessException | InvocationTargetException | SqlExecutionException e) {
-			e.printStackTrace();
-    		ret.setErrors(bindingResult.getAllErrors());
-    		return ret;
-   		}
-		ret.setResult(0);
-		
-		return ret;
-	}
-	
 	/** private **/
 	/**
 	 * １件取得

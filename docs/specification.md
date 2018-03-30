@@ -89,5 +89,21 @@ CSRFトークンを付与する
 
 ## nextForm
 次の画面に渡すためのフォーム
-キー情報と今の検索条件・ページャの情報をpostで渡す
-postで渡すのでCSRFトークンを渡す
+キー情報と今の検索条件・ページャの情報をgetで渡す
+
+## その他予定
+ショッピングカートの決済画面のような順番を必要とする画面はuriに設定を書かせないためにpostで渡す必要がある
+
+# 独自実装
+
+## BindingResultの拡張
+JSR-303ではValidationの出力順はランダムのためこれをアノテーション設定順に変える
+
+- bindingResult.getAllErrors()ですべてのエラーを取得し、エラーが発生したアノテーションを取得できる
+
+```java
+List<FieldError> fe = bindingResult.getFieldErrors();
+for (FieldError e : fe) {
+	System.out.println(e.getField() + ":" + e.getCode());
+}
+```
