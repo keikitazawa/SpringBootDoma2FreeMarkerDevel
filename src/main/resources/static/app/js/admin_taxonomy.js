@@ -42,6 +42,13 @@ $(function() {
 			site.list(id);
 		}	
 	);
+	// タームツリーの表示
+	$(".termTree").click(
+		function(){
+			var id = $(this).parent().parent().find("input[name=id]").val();
+			site.tree(id);
+		}	
+	);
 });
 
 TaxonomyAdmin = function(){};
@@ -90,4 +97,9 @@ TaxonomyAdmin.prototype.list = function(id){
 	$("form[name=nextForm]").find("input[name=previousParams]").val(qs.getQueryString());
 	$("form[name=nextForm]").submit();
 };
-
+TaxonomyAdmin.prototype.tree = function(id){
+	var qs = new Url(location.href);
+	$("form[name=treeForm]").find("input[name=taxonomyId]").val(id);
+	$("form[name=treeForm]").find("input[name=previousParams]").val(qs.getQueryString());
+	$("form[name=treeForm]").submit();
+};

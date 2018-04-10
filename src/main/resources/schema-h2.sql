@@ -46,15 +46,19 @@ CREATE TABLE `Terms` (
 
 CREATE TABLE `TermTrees` (
    `version` bigint NOT NULL  DEFAULT '0' 
+  ,`taxonomy_id` char(36) NOT NULL  
   ,`parent_id` char(36) NOT NULL  
   ,`id` char(36) NOT NULL  
   ,CONSTRAINT PK_TermTrees PRIMARY KEY (parent_id, id)
 );
+CREATE INDEX IK_TermTrees_taxonomyid ON `TermTrees` (taxonomy_id);
 
 
+
+--ALTER TABLE `TermTrees` ADD CONSTRAINT FK_TermTrees_id FOREIGN KEY (id) REFERENCES terms(id);
+--ALTER TABLE `TermTrees` ADD CONSTRAINT FK_TermTrees_parentid FOREIGN KEY (parent_id) REFERENCES terms(id);
 
 --ALTER TABLE `Taxonomies` ADD CONSTRAINT FK_Taxonomies_id FOREIGN KEY (id) REFERENCES terms(parent_id);
-
 
 --ALTER TABLE `TermTrees` ADD CONSTRAINT FK_TermTrees_id FOREIGN KEY (id) REFERENCES terms(id);
 --ALTER TABLE `TermTrees` ADD CONSTRAINT FK_TermTrees_parentid FOREIGN KEY (parent_id) REFERENCES terms(id);

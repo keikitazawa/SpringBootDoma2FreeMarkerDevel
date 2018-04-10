@@ -52,6 +52,7 @@
 				<!-- data-toggle等があるとメソッドでダイアログを動かせない -->
 				<button type="button" class="btn btn-sm btn-primary modifyData">編集</button>
 				<button type="button" class="btn btn-sm btn-primary listTerm">ターム</button>
+				<button type="button" class="btn btn-sm btn-primary termTree">階層</button>
 				<button type="button" class="btn btn-sm btn-primary removeData">削除</button>
 			</td>
 		</tr>
@@ -91,6 +92,17 @@
 <form name="nextForm" method="get" action="${termUri!}">
 	<#-- 表示対象 -->
 	<input type="hidden" name="parentId" />
+	<#-- 検索条件 -->
+	<input type="hidden" name="previousParams" />
+	<#-- csrf for detail window
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	 -->
+</form>
+<#-- termtree管理 -->
+<form name="treeForm" method="get" action="${treeUri!}">
+	<#-- 表示対象 -->
+	<input type="hidden" name="taxonomyId" />
+	<input type="hidden" name="parentId" value="${parentUuid!}" />
 	<#-- 検索条件 -->
 	<input type="hidden" name="previousParams" />
 	<#-- csrf for detail window

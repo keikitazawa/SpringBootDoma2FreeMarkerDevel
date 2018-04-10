@@ -13,7 +13,6 @@ import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.Update;
 import org.seasar.doma.boot.ConfigAutowireable;
-import org.seasar.doma.jdbc.SelectOptions;
 
 /**
  * @author kitaz
@@ -24,10 +23,10 @@ import org.seasar.doma.jdbc.SelectOptions;
 public interface TermTreesDao {
 	
 	@Select
-	public List<TermTreeTerm> findByKeyword(String parentId, String keyword, SelectOptions options, String orderBy);
+	public List<TermTreeTerm> findByKeyword(String taxonomyId, String parentId, String keyword, String orderBy);
 	
 	@Select
-	public List<TermTreeTerm> findByParentId(String parentId, SelectOptions options, String orderBy);
+	public List<TermTreeTerm> findByParentId(String taxonomyId, String parentId, String orderBy);
 
 	@Insert
 	public int insert(TermTree termTree);

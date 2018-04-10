@@ -34,36 +34,8 @@ public class BaseController {
 	}
 	
 	/** template側操作 **/
-	// TODO そもそもスーパークラスに置くべきか？
 	/**
 	 * pager情報の取り込み
-	 * @param map model用のmap
-	 * @param pageNumber 表示するページ数（０起点）
-	 * @param totalCount 検索結果の件数
-	 * @param limit １ページに表示する件数
-	 * @param width ページャーのリンク数
-	 * @param buffer ページャの余白
-	 * @return
-	 */
-	@Deprecated
-	protected HashMap<String, Object> setPagerConfigToMap(
-			HashMap<String, Object> map, 
-			int pageNumber,
-			long totalCount,
-			int limit,
-			int width,
-			int buffer
-	){
-		// map更新
-		map.put("pager_pageNumber", pageNumber);
-		map.put("pager_totalCount", totalCount);
-		map.put("pager_limit", limit);
-		map.put("pager_width", width);
-		map.put("pager_buffer", buffer);
-		return map;
-	}
-	/**
-	 * 
 	 * @param map
 	 * @param domaPagerEntity
 	 * @return

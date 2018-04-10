@@ -9,6 +9,7 @@ import org.fslabs.springbootdoma2freemarker.app.dto.TaxonomyDto;
 import org.fslabs.springbootdoma2freemarker.app.entity.Taxonomy;
 import org.fslabs.springbootdoma2freemarker.app.form.TaxonomyAdminSearchForm;
 import org.fslabs.springbootdoma2freemarker.app.service.TaxonomyService;
+import org.fslabs.springbootdoma2freemarker.core.config.AppConf;
 import org.fslabs.springbootdoma2freemarker.core.controller.BaseController;
 import org.fslabs.springbootdoma2freemarker.core.entity.DomaPagerEntity;
 import org.fslabs.springbootdoma2freemarker.core.util.DomaSelectOptionsUtil;
@@ -34,6 +35,7 @@ public class TaxonomyController extends BaseController {
 	
 	private final String SELF_URI_LOCAL = "/admin/taxonomy";
 	private final String TERM_URI_LOCAL = "/admin/term";
+	private final String TREE_URI_LOCAL = "/admin/termtree";
 	
 	@Autowired
 	private TaxonomyService _ts;
@@ -176,6 +178,10 @@ public class TaxonomyController extends BaseController {
 		// 自身のURI
 		map.put("selfUri", SELF_URI_LOCAL);
 		map.put("termUri", TERM_URI_LOCAL);
+		map.put("treeUri", TREE_URI_LOCAL);
+		
+		// 
+		map.put("parentUuid", AppConf.Uuid.NoData);
 				
 		return map;
 	}

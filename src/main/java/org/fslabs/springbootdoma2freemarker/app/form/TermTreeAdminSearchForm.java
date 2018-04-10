@@ -11,18 +11,32 @@ import org.fslabs.springbootdoma2freemarker.core.form.BaseSearchForm;
  */
 public class TermTreeAdminSearchForm extends BaseSearchForm {
 	
-	private String keyword;
+	private String taxonomyId;
+	private String parentId;
 	
 	/**
-	 * @return keyword
+	 * @return taxonomyId
 	 */
-	public String getKeyword() {
-		return keyword;
+	public String getTaxonomyId() {
+		return taxonomyId;
 	}
 	/**
-	 * @param keyword セットする keyword
+	 * @return parentId
 	 */
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
+	public String getParentId() {
+		return parentId;
 	}
+	/**
+	 * @param taxonomyId セットする taxonomyId
+	 */
+	public void setTaxonomyId(String taxonomyId) {
+		this.taxonomyId = taxonomyId;
+	}
+	/**
+	 * @param parentId セットする parentId
+	 */
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
+	}
+
 }

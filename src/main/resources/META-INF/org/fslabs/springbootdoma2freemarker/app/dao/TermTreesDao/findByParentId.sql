@@ -15,8 +15,10 @@ inner join
 on
 	tr.parent_id = tx.id
 where
+	tt.taxonomy_id = /* taxonomyId */'9046bb3f-a560-47a5-9a9a-2fe8b076d91e'
 /*%if parentId != null*/
-	tt.parent_id = /* parentId */'9046bb3f-a560-47a5-9a9a-2fe8b076d91e'
+and
+	tt.parent_id = /* parentId */'00000000-0000-0000-0000-000000000000'
 /*%end*/
 and
 	tr.deleted is null 

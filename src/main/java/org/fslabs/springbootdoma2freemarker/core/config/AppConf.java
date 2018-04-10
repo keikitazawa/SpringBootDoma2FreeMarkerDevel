@@ -23,7 +23,7 @@ public final class AppConf {
 		/**
 		 * 表示件数
 		 */
-		public static final int Limit= 2;
+		public static final int Limit= 5;
 		/**
 		 * ページャの表示リンク数
 		 */

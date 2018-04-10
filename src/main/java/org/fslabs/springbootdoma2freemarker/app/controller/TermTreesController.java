@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.fslabs.springbootdoma2freemarker.app.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.fslabs.springbootdoma2freemarker.app.dto.TermTreeDto;
 import org.fslabs.springbootdoma2freemarker.app.form.TermTreeAdminSearchForm;
-import org.fslabs.springbootdoma2freemarker.app.form.TermTreeAdminSelectForm;
 import org.fslabs.springbootdoma2freemarker.app.service.TermTreeService;
-import org.fslabs.springbootdoma2freemarker.core.config.AppConf;
 import org.fslabs.springbootdoma2freemarker.core.controller.BaseController;
-import org.fslabs.springbootdoma2freemarker.core.util.DomaSelectOptionsUtil;
-import org.fslabs.springbootdoma2freemarker.core.util.OrderByBuildUtil;
-import org.seasar.doma.jdbc.SelectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,20 +42,7 @@ public class TermTreesController extends BaseController {
 		return "admin_termtree";
 	}
 	
-	/**
-	 * 初期表示
-	 * @param pageable
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value="/select", method = {RequestMethod.GET, RequestMethod.POST})
-	public String select(
-            @ModelAttribute(value="selectTermForm") TermTreeAdminSelectForm condition,
-			Model model
-	) {
-		model = this.selectData(condition, model);
-		return "admin_termtree";
-	}
+	
 	
 	/** private **/
 	/**
@@ -75,23 +53,15 @@ public class TermTreesController extends BaseController {
 	 */
 	private Model getData(TermTreeAdminSearchForm condition, Model model){
 		
-		// SelectOptionsの作成
-		SelectOptions selectOptions = DomaSelectOptionsUtil.get(Integer.valueOf(condition.getP()), condition.getL());
-		// Order Byの作成
-		String orderBy = OrderByBuildUtil.buildOrderBy(condition.getC(), condition.getD());
-		
 		// Serviceに処理を渡す
-		TermTreeDto dto = _tts.searchData(null, condition.getKeyword(), selectOptions, orderBy);
+		TermTreeDto dto = _tts.selectTerms(condition.getTaxonomyId(), condition.getParentId());
 		
 		// map更新
 		HashMap<String, Object> map = new HashMap<String, Object>();
+
 		// 条件とDTOを格納
 		map.put("condition", condition);
 		map.put("taxonomies", dto.getTermTreesTerm());
-		
-		// pager設定
-		map = super.setPagerConfigToMap(map, Integer.valueOf(condition.getP()), selectOptions.getCount(), condition.getL(), AppConf.Pager.Width,  AppConf.Pager.Buffer);
-		// site情報の挿入
 		map = this.setAttributeToMap(map);
 		// model挿入
 		model = super.setAttributesToModel(model, map);
@@ -99,39 +69,7 @@ public class TermTreesController extends BaseController {
 		return model;
 	}
 	
-	/**
-	 * 検索結果の取得
-	 * @param pageable
-	 * @param form
-	 * @return
-	 */
-	private Model selectData(TermTreeAdminSelectForm condition, Model model){
-		
-		
-		// SelectOptionsの作成
-		SelectOptions selectOptions = DomaSelectOptionsUtil.get(Integer.valueOf(condition.getP()), condition.getL());
-		// Order Byの作成
-		String orderBy = OrderByBuildUtil.buildOrderBy(condition.getC(), condition.getD());
-		
-		// Serviceに処理を渡す
-		TermTreeDto dto = _tts.selectData(condition.getParentId(), selectOptions, orderBy);
-		// -> daoを通すとoptions.getCount()が更新される
-		
-		// map更新
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		// 条件とdtoを格納
-		map.put("condition", condition);
-		map.put("taxonomies", dto.getTermTreesTerm());
-		
-		// pager設定
-		map = super.setPagerConfigToMap(map, Integer.valueOf(condition.getP()), selectOptions.getCount(), AppConf.Pager.Limit, AppConf.Pager.Width, AppConf.Pager.Buffer);
-		// site情報の挿入
-		map = this.setAttributeToMap(map);
-		// model挿入
-		model = super.setAttributesToModel(model, map);
-		
-		return model;
-	}
+
 	
 	/**
 	 * Controller共通で使う設定値を格納する
@@ -141,17 +79,33 @@ public class TermTreesController extends BaseController {
 	 */
 	private HashMap<String, Object> setAttributeToMap(HashMap<String, Object> map){
 		
-		map.put("siteTitle", "タクソノミーターム管理");
+		map.put("siteTitle", "タクソノミー階層管理");
 		
-		String[] csss = {};
-		String[] jss = {"/app/js/admin_termtree.js"};
-		
+		List<String> csss = super.setCsss();
+		csss.add("/app/css/taxonomy.css");
 		map.put("csss", csss);
+		
+		List<String> jss = super.setJavaScripts();
+		jss.add("/common/js/common.js");
+		jss.add("/common/js/__pager.js");
+		jss.add("/app/js/admin_termtree.js");
 		map.put("jss", jss);
 		
 		// 自身のuri
 		map.put("selfUri", SELF_URI_LOCAL);
 				
 		return map;
+	}
+	
+	/**
+	 * パラメータからソート順を取得する
+	 * @param p チルダ区切りの番号
+	 * @return チルダ区切りのカラム名
+	 */
+	public HashMap<String, String> getColumnNames() {
+		HashMap<String, String> ret = new HashMap<String, String>();
+		ret.put("0", "tr.weight");
+		ret.put("1", "tx.name");
+		return ret;
 	}
 }
