@@ -10,15 +10,10 @@
 	</div>
 </div>
 <div class="row">
-	<form name="searchForm" method="get" action="${selfUri!}">
-		<div class="col-md-4 form-group form-group-sm">
-			<input type="text" name="searchKeyword" class="form-control" value="${condition.searchKeyword!}" />
-			<input type="hidden" name="p" value="0" />
-			<input type="hidden" name="c" value="${condition.c!}" />
-			<input type="hidden" name="d" value="${condition.d!}" />
-		</div>
-		<div class="col-md-8">
-		</div>
+	<form name="changeForm" method="get" action="${selfUri!}">
+		<input type="hidden" name="targetId" value="" />
+		<input type="hidden" name="previousParams" value="${condition.previousParams!}" />
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form>
 </div>
 <div class="row table-responsive">
@@ -32,7 +27,19 @@
 		</tr>
 	</thead>
 	<tbody>
-<#list taxonomies as r>
+<#list termTrees as r>
+		<tr>
+			<td>${r.taxonomyId!}</td>
+			<td>${r.id!}</td>
+			<td>${r.level!}</td>
+			<td>
+				<input type="hidden" name="id" value="${r.id!}" />
+				<input type="hidden" name="version" value="${r.version!}" />
+				<!-- data-toggle等があるとメソッドでダイアログを動かせない -->
+			</td>
+		</tr>
+</#list>
+<#-- list taxonomies as r>
 		<tr>
 			<td>${r.taxonomyName!}</td>
 			<td>${r.name!}</td>
@@ -43,7 +50,8 @@
 				<!-- data-toggle等があるとメソッドでダイアログを動かせない -->
 			</td>
 		</tr>
-</#list>
+<list>
+ -->
 	</tbody>
 	</table>
 </div>

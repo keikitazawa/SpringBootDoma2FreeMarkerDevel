@@ -28,6 +28,9 @@ public class TermTree implements Serializable {
 	@Column(name="version")
 	private long version;
 	
+	@Column(name="taxonomy_id")
+	private String taxonomy_id;
+	
 	@Id
 	@Column(name="parent_id")
 	private String parent_id;
@@ -41,6 +44,13 @@ public class TermTree implements Serializable {
 	 */
 	public long getVersion() {
 		return version;
+	}
+
+	/**
+	 * @return taxonomy_id
+	 */
+	public String getTaxonomy_id() {
+		return taxonomy_id;
 	}
 
 	/**
@@ -62,6 +72,13 @@ public class TermTree implements Serializable {
 	 */
 	public void setVersion(long version) {
 		this.version = version;
+	}
+
+	/**
+	 * @param taxonomy_id セットする taxonomy_id
+	 */
+	public void setTaxonomy_id(String taxonomy_id) {
+		this.taxonomy_id = taxonomy_id;
 	}
 
 	/**

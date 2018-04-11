@@ -21,4 +21,4 @@ insert into TermTrees(taxonomy_id, parent_id, id) values('9046bb3f-a560-47a5-9a9
 insert into TermTrees(taxonomy_id, parent_id, id) values('9046bb3f-a560-47a5-9a9a-2fe8b076d91e', '00000000-0000-0000-0000-000000000000', 'bb70eae3-5966-42cd-bc08-936ee47b4836');
 insert into TermTrees(taxonomy_id, parent_id, id) values('9046bb3f-a560-47a5-9a9a-2fe8b076d91e', 'd344d8f7-99c7-49b3-9ac5-8aef925c0192', 'a12ebe15-306c-4b25-8ca5-6f9b7cd27f2c');
 insert into TermTrees(taxonomy_id, parent_id, id) values('9046bb3f-a560-47a5-9a9a-2fe8b076d91e', 'd344d8f7-99c7-49b3-9ac5-8aef925c0192', 'd60ffd1e-dc09-48d2-8a29-152e92ae8a48');
-insert into TermTrees(taxonomy_id, parent_id, id) values('9046bb3f-a560-47a5-9a9a-2fe8b076d91e', 'd60ffd1e-dc09-48d2-8a29-152e92ae8a48', '9046bb3f-a560-47a5-9a9a-2fe8b076d91e');
+insert into TermTrees(taxonomy_id, parent_id, id) values('9046bb3f-a560-47a5-9a9a-2fe8b076d91e', 'd60ffd1e-dc09-48d2-8a29-152e92ae8a48', 'a489f780-72d0-4a5f-b078-6b147797b4c1');
