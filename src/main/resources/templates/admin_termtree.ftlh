@@ -20,17 +20,15 @@
 	<table class="table table-striped table-condensed">
 	<thead>
 		<tr>
-			<th>カテゴリ</th>
 			<th>名称</th>
-			<th>重さ</th>
+			<th>階層</th>
 			<th>操作</th>
 		</tr>
 	</thead>
 	<tbody>
 <#list termTrees as r>
 		<tr>
-			<td>${r.taxonomyId!}</td>
-			<td>${r.id!}</td>
+			<td>${r.name!}</td>
 			<td>${r.level!}</td>
 			<td>
 				<input type="hidden" name="id" value="${r.id!}" />
@@ -39,19 +37,6 @@
 			</td>
 		</tr>
 </#list>
-<#-- list taxonomies as r>
-		<tr>
-			<td>${r.taxonomyName!}</td>
-			<td>${r.name!}</td>
-			<td>${r.weight!}</td>
-			<td>
-				<input type="hidden" name="id" value="${r.id!}" />
-				<input type="hidden" name="version" value="${r.version!}" />
-				<!-- data-toggle等があるとメソッドでダイアログを動かせない -->
-			</td>
-		</tr>
-<list>
- -->
 	</tbody>
 	</table>
 </div>

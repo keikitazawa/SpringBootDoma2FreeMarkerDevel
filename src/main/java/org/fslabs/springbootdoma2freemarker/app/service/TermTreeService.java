@@ -42,6 +42,7 @@ public class TermTreeService extends BaseService {
 		for (TermTreeTerm tl : currentList) {
 			TermTreeListEntity t = new TermTreeListEntity();
 			t.setId(tl.getId());
+			t.setName(tl.getName());
 			t.setLevel(level);
 			t.setTaxonomyId(taxonomyId);
 			ret.add(t);
@@ -56,6 +57,7 @@ public class TermTreeService extends BaseService {
 				if (ttle.isSearch()) {
 					TermTreeListEntity t = new TermTreeListEntity();
 					t.setId(ttle.getId());
+					t.setName(ttle.getName());
 					t.setLevel(ttle.getLevel());
 					t.setTaxonomyId(taxonomyId);
 					t.setSearch(true);
@@ -65,6 +67,7 @@ public class TermTreeService extends BaseService {
 					
 					TermTreeListEntity t = new TermTreeListEntity();
 					t.setId(ttle.getId());
+					t.setName(ttle.getName());
 					t.setLevel(ttle.getLevel());
 					t.setTaxonomyId(taxonomyId);
 					t.setSearch(true);
@@ -74,6 +77,7 @@ public class TermTreeService extends BaseService {
 					for (TermTreeTerm ttt : tmp) {
 						TermTreeListEntity t2 = new TermTreeListEntity();
 						t2.setId(ttt.getId());
+						t2.setName(ttt.getName());
 						t2.setLevel(level);
 						t2.setTaxonomyId(taxonomyId);
 						t2.setSearch(false);

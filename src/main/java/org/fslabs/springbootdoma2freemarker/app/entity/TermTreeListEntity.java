@@ -4,6 +4,7 @@ public class TermTreeListEntity {
 
 	private String taxonomyId;
 	private String id;
+	private String name;
 	private int level;
 	private boolean isSearch = false;
 	/**
@@ -17,6 +18,12 @@ public class TermTreeListEntity {
 	 */
 	public String getId() {
 		return id;
+	}
+	/**
+	 * @return name
+	 */
+	public String getName() {
+		return name;
 	}
 	/**
 	 * @return level
@@ -41,6 +48,12 @@ public class TermTreeListEntity {
 	 */
 	public void setId(String id) {
 		this.id = id;
+	}
+	/**
+	 * @param name セットする name
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 	/**
 	 * @param level セットする level

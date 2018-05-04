@@ -54,7 +54,6 @@ public class TermTreesController extends BaseController {
 	private Model getData(TermTreeAdminSearchForm condition, Model model){
 		
 		// Serviceに処理を渡す
-//		TermTreeDto dto = _tts.selectTerms(condition.getTaxonomyId(), condition.getParentId());
 		TermTreeDto dto = _tts.getAllTerms(condition.getTaxonomyId());
 		
 		// map更新
@@ -62,7 +61,6 @@ public class TermTreesController extends BaseController {
 
 		// 条件とDTOを格納
 		map.put("condition", condition);
-//		map.put("taxonomies", dto.getTermTreesTerm());
 		map.put("termTrees", dto.getTermTreeList());
 		map = this.setAttributeToMap(map);
 		// model挿入
