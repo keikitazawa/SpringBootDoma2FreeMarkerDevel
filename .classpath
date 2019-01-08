@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="output" path="bin"/>
 	<classpathentry kind="src" path="src/main/java">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
@@ -19,11 +20,533 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="src" path=".apt_generated">
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-actuator/1.5.18.RELEASE/99399c83451301cc151c47d7cc287e326b75d926/spring-boot-starter-actuator-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-actuator/1.5.18.RELEASE/c4858eedec690e61e547646ce7ae77e6bdc58c1a/spring-boot-starter-actuator-1.5.18.RELEASE.jar">
 		<attributes>
-			<attribute name="optional" value="true"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="bin/default"/>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-actuator-docs/1.5.18.RELEASE/36bb9c6da5805f530ddd6df2a78907a4d2e68099/spring-boot-actuator-docs-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-actuator-docs/1.5.18.RELEASE/2b138f8d77ebb1c82e8b3d0bdb9cd6fe572f3c97/spring-boot-actuator-docs-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-actuator-docs/1.5.18.RELEASE/1ceeec1590dada63e82833cc976bb1ab5042d5/spring-boot-actuator-docs-1.5.18.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-integration/1.5.18.RELEASE/7d77d8f91bc2e8610c97d4a44ebc35cd64dd1a27/spring-boot-starter-integration-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-integration/1.5.18.RELEASE/36809dbbae942f3c64a36f650a0e40b8f247cc98/spring-boot-starter-integration-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/1.5.18.RELEASE/5b9110e219d96946e0ee2c7df698a626330b20ec/spring-boot-starter-aop-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/1.5.18.RELEASE/40777b0ebeccaf8afaa7d63b1fab2b6b15622e94/spring-boot-starter-aop-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-freemarker/1.5.18.RELEASE/7b045d75c0a2ad7c3107d27808b512b91759e5d5/spring-boot-starter-freemarker-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-freemarker/1.5.18.RELEASE/75ac9ab198c0dce5f2874d219e71385c0abd18b/spring-boot-starter-freemarker-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-security/1.5.18.RELEASE/cee98a9878a09e03fe3b9515417019ed834d5b02/spring-boot-starter-security-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-security/1.5.18.RELEASE/bb114616a5b74ed4cc8bfe33b4dba58475987b2c/spring-boot-starter-security-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.session/spring-session/1.3.4.RELEASE/4219682548bab1a1fa443c3ccdc87c6d84ef8cd6/spring-session-1.3.4.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.session/spring-session/1.3.4.RELEASE/165e6d8c6d9f7fc55704f8f6eda088fae59c2fd3/spring-session-1.3.4.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.session/spring-session/1.3.4.RELEASE/f6d48e68d395cb69233a4b499e3961ce940fc534/spring-session-1.3.4.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-validation/1.5.18.RELEASE/88b950366a894ee52fccf560009818ae09b054d5/spring-boot-starter-validation-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-validation/1.5.18.RELEASE/eb82d99dcad53c4434ac5389918e47a122fa24d/spring-boot-starter-validation-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.5.18.RELEASE/6f90a521e0681feeae97d9989c6cf08e134513cc/spring-boot-starter-web-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.5.18.RELEASE/ac69c498381c10bb5add3c19b517f25c51341886/spring-boot-starter-web-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.seasar.doma.boot/doma-spring-boot-starter/1.1.1/ba3153855aa093b2c85b50fec9bd6a2ba6b9b4c6/doma-spring-boot-starter-1.1.1-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.seasar.doma.boot/doma-spring-boot-starter/1.1.1/a8a8c1979767d1c0eee1346cd7ad4047fad7094f/doma-spring-boot-starter-1.1.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.seasar.doma.boot/doma-spring-boot-autoconfigure/1.1.1/2b62c491a2a5f25e669cc84bf564dc83b6e8f90d/doma-spring-boot-autoconfigure-1.1.1-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.seasar.doma.boot/doma-spring-boot-autoconfigure/1.1.1/fc32f5e8ec49be783b3ad7c752960d94d2d07efc/doma-spring-boot-autoconfigure-1.1.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.seasar.doma.boot/doma-spring-boot-autoconfigure/1.1.1/ed1e6e0f62b1945e2bc76c363a7662681716146c/doma-spring-boot-autoconfigure-1.1.1-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-jdbc/1.5.18.RELEASE/fa6c0d7b9a2a47a91e021d3f601ae402eac11eb4/spring-boot-starter-jdbc-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-jdbc/1.5.18.RELEASE/1c5b51be934704efa1260b4cf27dd6ad5df7205/spring-boot-starter-jdbc-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/1.5.18.RELEASE/a174e184ae1e65c75aebbf97f87d75e8d853a53b/spring-boot-configuration-processor-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/1.5.18.RELEASE/d3fdbefc97abe08e29a3c286df84fbabebeaf191/spring-boot-configuration-processor-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/1.5.18.RELEASE/426c08e0f4d1da5d6206ac3f9c8247f10dc1ac39/spring-boot-configuration-processor-1.5.18.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-ldap/4.2.10.RELEASE/4354d8666414357c23c9480454c4e6ab14fc317c/spring-security-ldap-4.2.10.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-ldap/4.2.10.RELEASE/cd9be3a22f112b53e0718088de4975b40b492dde/spring-security-ldap-4.2.10.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-ldap/4.2.10.RELEASE/7321420ab79a6dd5f368e197ffc061c04226a269/spring-security-ldap-4.2.10.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core/2.3.2.RELEASE/24620a276fe7313f7dad29a01abe56792cfe9a4b/spring-ldap-core-2.3.2.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core/2.3.2.RELEASE/8bd3457711b1746af93daa0aa04c9fc886569b1/spring-ldap-core-2.3.2.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core/2.3.2.RELEASE/78e625f78d3aa0dedec608957309d1f4084d174a/spring-ldap-core-2.3.2.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/4.2.10.RELEASE/6e5500a42063e617a3530115947189ebb6e22bcc/spring-security-config-4.2.10.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/4.2.10.RELEASE/459cb4a42a93f393b41b01c87bf76d219fe42b13/spring-security-config-4.2.10.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/4.2.10.RELEASE/b086fc642b3cbe928afef632078ce5b70f0e1633/spring-security-config-4.2.10.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-java-dsl/1.2.3.RELEASE/1010b37e56d9764de3108462da5fe99d6664c0c3/spring-integration-java-dsl-1.2.3.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-java-dsl/1.2.3.RELEASE/18c3f888579e48917093b0c74da809a5ba1f4ea8/spring-integration-java-dsl-1.2.3.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-java-dsl/1.2.3.RELEASE/4846aae39d8af4cdba1829176a15381a2218d6ff/spring-integration-java-dsl-1.2.3.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.3.18.RELEASE/bd752c0b44071313d6f672d3501afb7b81514778/spring-integration-core-4.3.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.3.18.RELEASE/3cfc5176495e00bd929e469ac0b382c03cde68a1/spring-integration-core-4.3.18.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-core/4.3.18.RELEASE/1ee1d45f5404a09c88ef6dd34978805305a4fb9d/spring-integration-core-4.3.18.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.21.RELEASE/43e7a225ef7491157dcb0095d98e7faf578e8bd4/spring-jdbc-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.21.RELEASE/3691a7af0372d73723222c4e0c63db2e58637e8e/spring-jdbc-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.21.RELEASE/ffd1d25eadb2a84f1c101f4b306114cb7e15eb29/spring-jdbc-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.21.RELEASE/721ed97f3703a28ee65d1953ad0634faadf832e3/spring-tx-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.21.RELEASE/9920a4b7629ee949f6ead56a214b532863c02919/spring-tx-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.21.RELEASE/a6da5d39dbfe20512d50d1c12fed4b648a035329/spring-tx-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.unboundid/unboundid-ldapsdk/3.2.1/8d5e2980a4d3e81937dd2adc2079c1499ca97cb5/unboundid-ldapsdk-3.2.1-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.unboundid/unboundid-ldapsdk/3.2.1/464832146acdfb4730ae28ccea61f8db550d77e0/unboundid-ldapsdk-3.2.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.unboundid/unboundid-ldapsdk/3.2.1/d8ef18e3825ac2d2fd55e93757f0b4b59e867c1a/unboundid-ldapsdk-3.2.1-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.9.3/9d70af7c5982bd09c33efa97ac98cee6363ba0f0/commons-beanutils-1.9.3-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.9.3/c845703de334ddc6b4b3cd26835458cb1cba1f3d/commons-beanutils-1.9.3.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.9.3/84b8fbacdf1e778d700c49057ddc876bea234839/commons-beanutils-1.9.3-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.5.18.RELEASE/75c3d78575538de8c01f0f898655e615bb72cd47/spring-boot-starter-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.5.18.RELEASE/f7676e6488e22fcf6c0119120d7364e14fa11dca/spring-boot-starter-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-actuator/1.5.18.RELEASE/f3adcf7a442ca77633d7910add05274b826d5eb2/spring-boot-actuator-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-actuator/1.5.18.RELEASE/a970e02f8a2fec07a4ba752065f3e4c653cc4838/spring-boot-actuator-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-actuator/1.5.18.RELEASE/9d327499d08474df03b58788c3154a30c7f50177/spring-boot-actuator-1.5.18.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.hateoas/spring-hateoas/0.23.0.RELEASE/8e23ea528cb6b42fa8b04874955385bc93321edc/spring-hateoas-0.23.0.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.hateoas/spring-hateoas/0.23.0.RELEASE/678ffa0798f417a794fea592dc8066e325611919/spring-hateoas-0.23.0.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.hateoas/spring-hateoas/0.23.0.RELEASE/9b038ea9bb4314eda66c46ced0b11103e414926f/spring-hateoas-0.23.0.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/4.2.10.RELEASE/cd33af911ccbaebffa0f1f5e1f45991dff7d338a/spring-security-web-4.2.10.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/4.2.10.RELEASE/5a6341dd31d4059342e074543308f81353d7c4f6/spring-security-web-4.2.10.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/4.2.10.RELEASE/7cdd7e42c50cb313e9cba6c077887f048c13b3db/spring-security-web-4.2.10.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.21.RELEASE/4683dfd0ba1422b7d1157f07974d52e8191e0a7a/spring-webmvc-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.21.RELEASE/697b5d133fc9293a25caec960fd19c7bd518f56a/spring-webmvc-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.21.RELEASE/1e1226270b4d5210afd4335286fd8201b78703d1/spring-webmvc-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.21.RELEASE/8ed9d5529279588e4e9f749c1e4cd33ed0ded86a/spring-web-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.21.RELEASE/64e4d7c10ce844ea093bee12f0bc9afc563ffa33/spring-web-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.21.RELEASE/8cccf1cb3fbb34e8c7090d20403ec2f0bd2b89b7/spring-web-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.10.RELEASE/4cd803d6234fe11a676cf22c31f0e0921dc29283/spring-security-core-4.2.10.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.10.RELEASE/ad1f0de3a4b61dabc618998df06aa09f9ee82617/spring-security-core-4.2.10.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.10.RELEASE/70666d48787773a97015661954a067c7a47fa097/spring-security-core-4.2.10.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.21.RELEASE/70bf5ace9b7918777b5842814c6b7d1cb07b26f2/spring-context-support-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.21.RELEASE/1a95108c75e45a92f7e37891d07e432bc7a7265e/spring-context-support-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.21.RELEASE/d67c3d3250d0b6c0473c7d36c35168c7451bdd13/spring-context-support-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/1.5.18.RELEASE/64b60ede6746417ed3df1facb4da6cc4cdbbf033/spring-boot-autoconfigure-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/1.5.18.RELEASE/7951dd1fe36dea4a64db6c2f7e14f0b1e0adb3ea/spring-boot-autoconfigure-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/1.5.18.RELEASE/8a1f656c1f224fc30a2cf186959f4da7ad0203e6/spring-boot-autoconfigure-1.5.18.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.5.18.RELEASE/ed1a89a55c7ca6ed952350001d2855c888ceba08/spring-boot-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.5.18.RELEASE/7914ca08dafc83e7013ef1f14f03357114f0e813/spring-boot-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.5.18.RELEASE/31921b12c0de758cf11bbf9eabb8b7e16756b673/spring-boot-1.5.18.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.3.21.RELEASE/c6c7ddb2e277b82ca7aff100eef8bfbfaf12df41/spring-messaging-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.3.21.RELEASE/82c20007200b47500734bfc68e6e4865b54ca074/spring-messaging-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.3.21.RELEASE/e97b20a394878a8a813b723cad12975c689e0397/spring-messaging-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.21.RELEASE/4e421d6fda1dfb17f7902693bf037ba51ffc9380/spring-context-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.21.RELEASE/5264ce9d8039d48684ce3fc25eb5d214fa46ab5b/spring-context-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.21.RELEASE/40c469310af330b1045e1b56f72d7abde9e8f7b6/spring-context-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.21.RELEASE/efb950a20dd9090a9a709589710a11d2b13d1f2a/spring-aop-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.21.RELEASE/e29ad56774c2e8d685b2628a1cd7df217e8e76b9/spring-aop-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.21.RELEASE/9a8978a3eb48267a346046fe510522d38a3b0d64/spring-aop-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.13.17.RELEASE/1439afa668549a0d37e88fb29733197d172b7431/spring-data-commons-1.13.17.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.13.17.RELEASE/58cf6873526629151d06963a5f9b1c2c6c3ae321/spring-data-commons-1.13.17.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.13.17.RELEASE/618f5ccc1c212ee01c31755c3839ef19fe4977c1/spring-data-commons-1.13.17.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.21.RELEASE/ea4bdf4a60512ae4e09257b2ba1bb789ba116e5b/spring-beans-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.21.RELEASE/b189b059b054acd7ea3d07dc028800d471bb72b6/spring-beans-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.21.RELEASE/3982ef7721649b4e71a3a4d74ec70c6af8d0cb09/spring-beans-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.21.RELEASE/e35be6fc188e6cccb91a08576ca3120507be8329/spring-expression-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.21.RELEASE/e69cc3105026235d4b91cb1c51c25ce125f0b7/spring-expression-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.21.RELEASE/be40760228824457a64d22e19b2d90f2402f0f1f/spring-expression-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.21.RELEASE/51169e2db1e06ca46648444ce20459724271f26d/spring-core-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.21.RELEASE/baca8fcf544214f08fe594ba092d6fa88900a74e/spring-core-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.21.RELEASE/49567a51ed32317e3716a29f3e049ad5c5dd5e8a/spring-core-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.13/4bba65cfdaa38e16e40ab5134651ac751e384c5f/aspectjweaver-1.8.13-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.13/ad94df2a28d658a40dc27bbaff6a1ce5fbf04e9b/aspectjweaver-1.8.13.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.13/7582360d7bbfc199b795f4c3f3bc742d16e0a4c7/aspectjweaver-1.8.13-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.28/b9e763fd0149515ec3b19cc7025385e7a177bdb0/freemarker-2.3.28-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.28/7200064467a935052f99d114c2c05c3d189bc6d6/freemarker-2.3.28.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.28/4d5d164b921dbe0dfbc94073e070b76a3930b74c/freemarker-2.3.28-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-tomcat/1.5.18.RELEASE/293ca559f4b3b5bb01639a92f9de51a05292c98c/spring-boot-starter-tomcat-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-tomcat/1.5.18.RELEASE/a9698317aa43178ae5f09ae015a828f9919a878c/spring-boot-starter-tomcat-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-el/8.5.35/d8aed37f62d06543ddb43bfa38550fcbad0978ae/tomcat-embed-el-8.5.35-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-el/8.5.35/da63e21798ee42a4b4019c7345b159d3b63bc3de/tomcat-embed-el-8.5.35.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.3.6.Final/3186793fdb68b63a39f6974c525f552dcdbacca3/hibernate-validator-5.3.6.Final-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.3.6.Final/4c730be8bf55a8e9a61e79a2f2c079abf48b718/hibernate-validator-5.3.6.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/5a75dc0b9cfe53c3eb55908fade87f783687dd43/jackson-databind-2.8.11.3-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/844df5aba5a1a56e00905b165b12bb34116ee858/jackson-databind-2.8.11.3.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/106816233b37f9dc8d13f61c86f90d014ffd3713/jackson-databind-2.8.11.3-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jdbc/8.5.35/d1073d8f837d6f4c792af0e51744f11c9b9ddb6c/tomcat-jdbc-8.5.35-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jdbc/8.5.35/b4b27053b96b70b6e2f3b8de9f5338b0d386386b/tomcat-jdbc-8.5.35.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.5.18.RELEASE/83b59729bd792b6ed579249231fcd2d6b27a8aa1/spring-boot-starter-logging-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.5.18.RELEASE/f60df51b2b14ee57db5340cf230ccd8514407017/spring-boot-starter-logging-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/2a2f78be7ef674b6486f7b5463f05f40da5e163/logback-classic-1.1.11-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/ccedfbacef4a6515d2983e3f89ed753d5d4fb665/logback-classic-1.1.11.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/730b720fb58e9c56be565c183d5484c8b506a859/logback-classic-1.1.11-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.25/ffd0827a7c67d5915b7dc611afbda56a1f247191/jcl-over-slf4j-1.7.25-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.25/f8c32b13ff142a513eeb5b6330b1588dcb2c0461/jcl-over-slf4j-1.7.25.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.25/6ffb2ee76a022f5057517e865360873f483ff594/jcl-over-slf4j-1.7.25-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.25/bcea1530927f59b5128841d3571f879ce3af2e86/jul-to-slf4j-1.7.25-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.25/af5364cd6679bfffb114f0dec8a157aaa283b76/jul-to-slf4j-1.7.25.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.25/b30bd7e4ca1582506c4e6f722ed2a4d9dc924a06/jul-to-slf4j-1.7.25-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.25/42a10e06ab88cbe5f31253ffb8c0bca96b34f81d/log4j-over-slf4j-1.7.25-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.25/a87bb47468f47ee7aabbd54f93e133d4215769c3/log4j-over-slf4j-1.7.25.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.25/df4e3dc7dd263346d6a376e742d0f2aeea901ff7/log4j-over-slf4j-1.7.25-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/962153db4a9ea71b79d047dfd1b2a0d80d8f4739/slf4j-api-1.7.25-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/f003e89ddebdbaca5cf3fc7cc0c67c88c2ca1a3c/slf4j-api-1.7.25-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/4a4b6d692e17846a9f3da036438a7ac491d3c814/aopalliance-1.0-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/78c50ebda5784937ca1615fc0e1d0cb35857d572/commons-collections-3.2.2-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5/commons-collections-3.2.2.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/ea9a113ab0147c4d48dda62dff207be07374c590/commons-collections-3.2.2-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.17/63577e87886c76228db9f8a2c50ea43cde5072eb/snakeyaml-1.17-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.17/7a27ea250c5130b2922b86dea63cbb1cc10a660c/snakeyaml-1.17.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.17/7d487d4d4284b8621c310a3865776dc46befc90c/snakeyaml-1.17-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.retry/spring-retry/1.2.2.RELEASE/1827e6a4297cde849e9ed7cb21d1890e9b62c182/spring-retry-1.2.2.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.retry/spring-retry/1.2.2.RELEASE/638928732585c450e461f0a132b6834ad7cf3af0/spring-retry-1.2.2.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.retry/spring-retry/1.2.2.RELEASE/fa5f99b4914cb4ac1a55a6009907e8e1d2e48221/spring-retry-1.2.2.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/5be7bd3f38e43c8fc83699bbb5328c62adb95bbf/reactive-streams-1.0.0-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/14b8c877d98005ba3941c9257cfe09f6ed0e0d74/reactive-streams-1.0.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/d3ba09ae0653d54596c46e7815904ef48e072ad3/reactive-streams-1.0.0-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/7d49b53caed9bd81d172807c3e096d24f3c57090/validation-api-1.1.0.Final-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/8613ae82954779d518631e05daa73a6a954817d5/validation-api-1.1.0.Final.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/9f3d019c10d629fa8259af61ac83e88bb186c4e9/validation-api-1.1.0.Final-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.3.2.Final/a44f0f22bbd9ccb96952806e73f6cc16ef7d2f67/jboss-logging-3.3.2.Final-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.3.2.Final/3789d00e859632e6c6206adc0c71625559e6e3b0/jboss-logging-3.3.2.Final.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.3.2.Final/a80380191944969c164a9604016ba60f58422d92/jboss-logging-3.3.2.Final-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml/classmate/1.3.4/d5aa53c93626884209c1e82fdf44d2ccdaf8e9c2/classmate-1.3.4-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml/classmate/1.3.4/3d5f48f10bbe4eb7bd862f10c0583be2e0053c6/classmate-1.3.4.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml/classmate/1.3.4/3aa1e32c4158e3d2c5ba657d7e1b4fcc87d9e3db/classmate-1.3.4-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-websocket/8.5.35/1f097df2a35d3cc65a24f0ee8095f0de81449937/tomcat-embed-websocket-8.5.35-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-websocket/8.5.35/e87da30db31e2d9e70598a12b40e9c2a23215a40/tomcat-embed-websocket-8.5.35.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.35/1ce8ba9be1c0b97c4cb097dc2799ce317f0d854f/tomcat-embed-core-8.5.35-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.35/9c459829e1aa72669203dbbf6648dc3b6314644c/tomcat-embed-core-8.5.35.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/29a1a95363d497e856c0a7d682e4f7973e334068/jackson-annotations-2.8.0-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/21f8639b30914ae5c31424d0bfc682ac54796c0f/jackson-annotations-2.8.0-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.11/1e1df4d8c9ca05f1708e0ce1d842cf82931a7fc9/jackson-core-2.8.11-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.11/876ead1db19f0c9e79c9789273a3ef8c6fd6c29b/jackson-core-2.8.11.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.11/784db989b09f9db562e7670974fa57788e1014f8/jackson-core-2.8.11-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/8.5.35/f8743f8e66000653495252e9ba582a88637d2232/tomcat-juli-8.5.35-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/8.5.35/69d0606072b31b57ba706d1ffc102064ad8f694b/tomcat-juli-8.5.35.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.seasar.doma/doma/2.16.1/f6162ff8e2c31c1ceae5830c8582808b557ce26c/doma-2.16.1-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.seasar.doma/doma/2.16.1/da59e6a74d043e684abd14da4af3008927c4fca1/doma-2.16.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.seasar.doma/doma/2.16.1/a12c45ffb86b2ade009b107d5cef856d77285a13/doma-2.16.1-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-annotations-api/8.5.35/18b5bca03b3679a483aa481ffa6d90579002c62f/tomcat-annotations-api-8.5.35-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-annotations-api/8.5.35/5e03d5b26a8cdf7368831d35baa323aaae3213b4/tomcat-annotations-api-8.5.35.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.11/1b6214469321068fe4d58157768e1e039479fa1/logback-core-1.1.11-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.11/88b8df40340eed549fb07e2613879bf6b006704d/logback-core-1.1.11.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.11/464fc4aaa7a2ddaaf231eabf8a8a5903e388c6d/logback-core-1.1.11-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.h2database/h2/1.4.197/23b998de929dba8b42a815057517f997d8b148e9/h2-1.4.197-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.h2database/h2/1.4.197/bb391050048ca8ae3e32451b5a3714ecd3596a46/h2-1.4.197.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.h2database/h2/1.4.197/ee41fb9c4fd5c5fa6ab32d9e5b6e39794a188ba7/h2-1.4.197-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-test/1.5.18.RELEASE/2fd68b23758af3f7e155220b954545dfb0be14b9/spring-boot-starter-test-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-test/1.5.18.RELEASE/eed16f4264c534a87f571f55d3e2e889ab3a74a4/spring-boot-starter-test-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.dbunit/dbunit/2.2/36d9e47bdf3a943d201ea629d1c21162d48d8904/dbunit-2.2-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.dbunit/dbunit/2.2/1328d15f52f73cf4b354379b06bc4891fd4e4607/dbunit-2.2.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.dbunit/dbunit/2.2/59782988c7df3c5a940f47d9ce3d237f26939dd8/dbunit-2.2-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/junit-addons/junit-addons/1.4/5f5fa0be54734f07a0b8fe9fa7b1447b4a88d55a/junit-addons-1.4.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/941a8be4506c65f0a9001c08812fb7da1e505e21/junit-4.12-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.21.RELEASE/f6ed9ddc5f83c2330e01042c3b02c796b19b9170/spring-test-4.3.21.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.21.RELEASE/98d58cf9828c4f977823153ad5ac5cc5612136f7/spring-test-4.3.21.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.21.RELEASE/e0c308f86be80ebf7036f79a30e6708836b2b3dc/spring-test-4.3.21.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/1.5.18.RELEASE/61998c71ee7008aed57a28dcf8bb4d16a2f4d013/spring-boot-test-autoconfigure-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/1.5.18.RELEASE/78b83e0f7eb016251c8a7e4b5547b4cbed151fbd/spring-boot-test-autoconfigure-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/1.5.18.RELEASE/a13aeab6fe1290be74efab29fdbe4d4bfe4a9494/spring-boot-test-autoconfigure-1.5.18.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.18.RELEASE/38534792b5ac6b35bbeb95246e4b35bb8fec473c/spring-boot-test-1.5.18.RELEASE-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.18.RELEASE/8ba0c21e70ee0f481eed17a28380fa0caf74f1d0/spring-boot-test-1.5.18.RELEASE.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.18.RELEASE/f5da741159acbd7cb5c93c3282fb69639e0004b3/spring-boot-test-1.5.18.RELEASE-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.2.0/546dfa7cadacf40752c42bfd12af3b7a935920af/json-path-2.2.0-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.2.0/22290d17944bd239fabf5ac69005a60a7ecbbbcb/json-path-2.2.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.2.0/dee95e5d3e8826092e7a85b6ab6d9bdbaf947a5e/json-path-2.2.0-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/8269667b73d9616600359a9b0ba1b1c7d0cf7a97/mockito-core-1.10.19-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/e8546f5bef4e061d8dd73895b4e8f40e3fe6effe/mockito-core-1.10.19.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/b486dc179083be16a52f3cad4c68e4772605ad2f/mockito-core-1.10.19-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/47a7ee46628ab7133129cd7cef1e92657bc275e/hamcrest-library-1.3-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4324046c5f99f3dc91b5370899fa3ae65fd137d2/hamcrest-library-1.3-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/ad09811315f1d4f5756986575b0ea16b99cd686f/hamcrest-core-1.3-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.6.0/86e8fd98e5ec52e93e3fa46d9bf5df7cca6d1bce/assertj-core-2.6.0-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.6.0/b532c3fc4f66bcfee4989a3514f1cd56203a33ad/assertj-core-2.6.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.6.0/60b70cda15b73d9b4a55a286559d169b62697829/assertj-core-2.6.0-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.skyscreamer/jsonassert/1.4.0/49efe8c34f11f1c0e2a1d8e297f59ec84adcdf6d/jsonassert-1.4.0-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.skyscreamer/jsonassert/1.4.0/9cdbb373a06f6513e51e8c545ee6a5e981463edb/jsonassert-1.4.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.skyscreamer/jsonassert/1.4.0/f68539da12d4002f3f68de97da45eb3085cb32b0/jsonassert-1.4.0-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.2.1/fe70f8807c06ef9dd27b695830149c118010308f/json-smart-2.2.1-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.2.1/5b9e5df7a62d1279b70dc882b041d249c4f0b002/json-smart-2.2.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.2.1/c427620824a6e6a6ef98dbed38ca0e951e6dcb68/json-smart-2.2.1-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/611a57d836e2c320d59f9851d4ad587f3c8472e/objenesis-2.1-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/87c0ea803b69252868d09308b4618f766f135a96/objenesis-2.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/cad27a134a9b0d295341abcaf3de9d25e1534ae6/objenesis-2.1-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/bf42d7e47a3228513b626dd7d37ac6f072aeca4f/android-json-0.0.20131108.vaadin1-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/a65eb5b1114f68e57996a48a05997708aa9f78b4/android-json-0.0.20131108.vaadin1-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/poi/poi/2.5.1-final-20040804/e72531e67e3e2544cf009d9808e6deda19ee0918/poi-2.5.1-final-20040804-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/poi/poi/2.5.1-final-20040804/b64b12868b4ebc0213a8780a1291219fd831e4e9/poi-2.5.1-final-20040804.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/poi/poi/2.5.1-final-20040804/1a29f0b94f5e3b43a272083a377887c27b695214/poi-2.5.1-final-20040804-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.1/8bd7257fc98610b6082c6798f530318d5be8852a/commons-lang-2.1-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.1/4763ecc9d78781c915c07eb03e90572c7ff04205/commons-lang-2.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.1/588501b141a1e5e64143c17dce1d796f026ae713/commons-lang-2.1-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/83033ee697035dfb9ce3503e1ac0c5a33021e503/commons-logging-1.2-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/net.minidev/accessors-smart/1.1/b5c478091ad2bfd497758094b00936543393415b/accessors-smart-1.1-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/net.minidev/accessors-smart/1.1/a527213f2fea112a04c9bdf0ec0264e34104cd08/accessors-smart-1.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/net.minidev/accessors-smart/1.1/a6ed7ccb710683fee1732e5b2a036cb2900f22c7/accessors-smart-1.1-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/xerces/xercesImpl/2.6.2/eb9e01cc90dfc083dd41d7f76a5efd102ab6b01e/xercesImpl-2.6.2-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/xerces/xercesImpl/2.6.2/897bcb56d6b7fe2070a5f561bfc78968ecdd3851/xercesImpl-2.6.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/xerces/xmlParserAPIs/2.6.2/65acede1e5305bd2b92213d7b5761328c6f4fd9/xmlParserAPIs-2.6.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.3/f0f24f6666c1a15c7e202e91610476bd4ce59368/asm-5.0.3-sources.jar" kind="lib" path="C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.3/dcc2193db20e19e1feca8b1240dbbc4e190824fa/asm-5.0.3.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/kitaz/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.3/c87547fa477f7dc22c5e3c5ddfc6dfac726e5b15/asm-5.0.3-javadoc.jar!/"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path=".apt_generated"/>
 </classpath>

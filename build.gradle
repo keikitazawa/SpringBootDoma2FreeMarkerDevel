@@ -1,78 +1,128 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.10.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.18.RELEASE'
+        lombokVersion = "1.18.2"
+        dockerComposePluginVersion = "0.6.6"
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: 'org.springframework.boot'
+apply plugin: "io.spring.dependency-management"
+
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+task copyDomaResources(type: Sync)  {
+    from sourceSets.main.resources.srcDirs
+    into compileJava.destinationDir
+    include 'doma.compile.config'
+    include 'META-INF/**/*.sql'
+    include 'META-INF/**/*.script'
+}
+
+compileJava {
+    dependsOn copyDomaResources
+    options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+	dependsOn copyDomaResources
+    options.encoding = 'UTF-8'
+    options.compilerArgs = ['-proc:none']
+}
+
+configurations {
+    domaGenRuntime
 }
 
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
+// JavaクラスとSQLファイルの出力先ディレクトリを同じにする
+// processResources.destinationDir = compileJava.destinationDir
+// コンパイルより前にSQLファイルを出力先ディレクトリにコピーするために依存関係を逆転する
+// compileJava.dependsOn processResources
 
-version = '0.0.2'
+// JREバージョンはここで決まる
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-processResources.destinationDir = compileJava.destinationDir
-compileJava.dependsOn processResources
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets {
+    test.resources {
+        // テスト時にsrc/main/resourcesにある設定ファイルを使用する
+        srcDirs "src/main/resources"
+        srcDirs "src/test/resources"
+    }
+}
 
 jar {
     baseName = 'SpringBootDoma2FreeMarkerDemo'
     version =  version
 }
 
-repositories {
-    mavenCentral()
-    mavenLocal()
-    maven { url "http://repo.spring.io/libs-snapshot" }
-    maven { url "http://repo.spring.io/milestone" }
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-}
-
 dependencies {
+	//classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-actuator-docs')
-	
+
 	compile('org.springframework.boot:spring-boot-starter-aop')
-	
-	compile('org.springframework.boot:spring-boot-starter-cache')
+
 	//	compile('org.freemarker:freemarker')
 	compile('org.springframework.boot:spring-boot-starter-freemarker')
-	
+
 	compile('org.springframework.boot:spring-boot-starter-integration')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.session:spring-session')
 	compile('org.springframework.boot:spring-boot-starter-validation')
-	
 
-    compile("org.springframework.boot:spring-boot-devtools")
-    compile("org.springframework.boot:spring-boot-configuration-processor")
-    
 	compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
-	compile("org.seasar.doma.boot:doma-spring-boot-starter:1.1.1")
+
+	//
+    compile "org.springframework.boot:spring-boot-configuration-processor"
+
+	// ldap
+	compile "org.springframework.ldap:spring-ldap-core"
+	compile 'org.springframework.security:spring-security-ldap'
+    compile "org.springframework.security:spring-security-config"
+	compile "org.springframework:spring-tx"
+	compile "com.unboundid:unboundid-ldapsdk"
 
 	// https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
 	// spring標準のものは型変換をしないためこちらを使う
 	compile('commons-beanutils:commons-beanutils')
 
-	runtime("org.postgresql:postgresql")
-	runtime("com.h2database:h2")
+	annotationProcessor "org.seasar.doma.boot:doma-spring-boot-starter:1.1.1"
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+	compile "org.seasar.doma.boot:doma-spring-boot-starter:1.1.1"
+
+	runtimeOnly("com.h2database:h2")
 
 	testCompile("junit:junit")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 	// https://mvnrepository.com/artifact/dbunit/dbunit
 	testCompile("dbunit:dbunit:2.2")
-	
+
 }
 
 // ======== wrapper ========
 task wrapper(type: Wrapper) {
-	gradleVersion = "4.5"
+	gradleVersion = "4.10.3"
 }
 
 apply from: "eclipse.gradle"
