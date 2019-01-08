@@ -16,7 +16,7 @@ import org.fslabs.springbootdoma2freemarker.core.config.AppConf;
  * @author kitaz
  *
  */
-@Deprecated
+//@Deprecated
 public class OrderByBuildUtil {
 	/**
 	 * DESCの正規表現
@@ -31,7 +31,7 @@ public class OrderByBuildUtil {
 	 * OrderBｙ句における不正な文字
 	 */
 	private static final Pattern invalidPattern = Pattern.compile("\\s");
-	
+
 	/** for Pagination parameter **/
 	/**
 	 * パラメータのカンマ区切りから作成
@@ -47,7 +47,7 @@ public class OrderByBuildUtil {
 			columnsArray = sortColumns.split("\\s{0,}~\\s{0,}", -1);
 			directionsArray = sortDirection.split("\\s{0,}~\\s{0,}", -1);
 			int minArray = columnsArray.length > directionsArray.length ? directionsArray.length : columnsArray.length;
-			
+
 			for (int i = 0; i < minArray; i++) {
 				setOrderBy(columnsArray[i], directionsArray[i]);
 			}
@@ -58,7 +58,7 @@ public class OrderByBuildUtil {
 		}
 		return orderBy;
 	}
-	
+
 	/**
 	 * 順番にOrderByを作成する
 	 * @param column
@@ -79,7 +79,7 @@ public class OrderByBuildUtil {
 	public static String getOrderBy(){
 		return build();
 	}
-	
+
 	public static void clear() {
 		orders = new LinkedHashMap<String, String>();
 	}
@@ -90,23 +90,23 @@ public class OrderByBuildUtil {
 	 * @return
 	 */
 	private static String build() {
-		
+
 		String ret = null;
-		
+
 		// LinkedHashMapが存在する場合は無条件でOrderByを作る
 		if (Objects.nonNull(orders) && orders.size() > 0) {
-			
+
 			List<String> orderBy = new ArrayList<String>();
-			
+
 			for (Map.Entry<String, String> a : orders.entrySet()) {
-				
+
 				String column = a.getKey();
 				String direction = a.getValue();
-				
+
 				// columnが存在する場合はOrderBy句の対象とみなす
 				if (column.length() > 0) {
 					StringBuilder sb = new StringBuilder();
-					
+
 					// 明示的にDESC宣言のみDESC扱い
 					if (pattern.matcher(direction).matches()) {
 						sb.append(column);
@@ -121,7 +121,7 @@ public class OrderByBuildUtil {
 					orderBy.add(sb.toString());
 				}
 			}
-			
+
 			StringBuilder sb = new StringBuilder();
 			sb.append("ORDER BY ");
 			sb.append(String.join(", ", orderBy));

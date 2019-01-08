@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.fslabs.springbootdoma2freemarker.core.controller;
 
@@ -18,7 +18,7 @@ import org.springframework.ui.Model;
  *
  */
 public class BaseController {
-	
+
 	/** message **/
 	@Autowired
 	private MessageSource messageSource;
@@ -32,7 +32,7 @@ public class BaseController {
 	public String getDefaultMessage(String errorCode, Object[] params) {
 		return messageSource.getMessage(errorCode, params, Locale.getDefault());
 	}
-	
+
 	/** template側操作 **/
 	// TODO そもそもスーパークラスに置くべきか？
 	/**
@@ -45,9 +45,9 @@ public class BaseController {
 	 * @param buffer ページャの余白
 	 * @return
 	 */
-	@Deprecated
+//	@Deprecated
 	protected HashMap<String, Object> setPagerConfigToMap(
-			HashMap<String, Object> map, 
+			HashMap<String, Object> map,
 			int pageNumber,
 			long totalCount,
 			int limit,
@@ -63,16 +63,16 @@ public class BaseController {
 		return map;
 	}
 	/**
-	 * 
+	 *
 	 * @param map
 	 * @param domaPagerEntity
 	 * @return
 	 */
 	protected HashMap<String, Object> setPagerConfigToMap(
-			HashMap<String, Object> map, 
+			HashMap<String, Object> map,
 			DomaPagerEntity domaPagerEntity,
 			long totalCount
-			
+
 	){
 		// map更新
 		map.put("pager_pageNumber", domaPagerEntity.getP());
@@ -87,13 +87,13 @@ public class BaseController {
 	 * @return
 	 */
 	protected List<String> setJavaScripts() {
-		List<String> ret = new ArrayList<String>(); 
+		List<String> ret = new ArrayList<String>();
 		ret.add("/common/js/jquery-3.3.1.min.js");
 		ret.add("/common/js/jquery-ui.min.js");
 		ret.add("/bootstrap/js/bootstrap.min.js");
 		return ret;
 	}
-	
+
 	/**
 	 * 共有cssの取り込み
 	 * @return
@@ -104,7 +104,7 @@ public class BaseController {
 		ret.add("/bootstrap/css/bootstrap.min.css");
 		return ret;
 	}
-	
+
 	/**
 	 * modelにテンプレート用の属性を一括設置する
 	 * @param model
